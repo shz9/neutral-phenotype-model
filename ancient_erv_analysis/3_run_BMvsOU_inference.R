@@ -5,8 +5,8 @@ library(ggplot2)
 
 ########### Global variables ###########
 
-main_input_dirs <- list("Real Sequences" = "./data/2_q_traits/0_chopped_alignments",
-                        "Simulated Sequences" = "./data/2_q_traits/2_simulated_sequences")
+main_input_dirs <- list("Real Sequences" = "./data/3_q_traits/0_chopped_alignments",
+                        "Simulated Sequences" = "./data/3_q_traits/2_simulated_sequences")
 tree_dir <- "./metadata/segment_trees/paml_inferred/"
 
 plot_trait_names <- list("A_percent" = "Percent of A",

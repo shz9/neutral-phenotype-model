@@ -1,0 +1,1972 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     73143,       1964]
+NotebookOptionsPosition[     67026,       1871]
+NotebookOutlinePosition[     67417,       1888]
+CellTagsIndexPosition[     67374,       1885]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[TextData[StyleBox["Evolutionary dynamics of neutral phenotypes\nunder \
+DNA substitution models",
+ FontSize->30,
+ FontWeight->"Regular"]], "Title",
+ CellChangeTimes->{{3.821293109357526*^9, 
+  3.821293118333733*^9}},ExpressionUUID->"d2d9d8b1-1bdf-4ed3-803d-\
+60a021f5daba"],
+
+Cell[TextData[StyleBox["Deriving the central quantities used in the Appendix \
+with\nMathematica",
+ FontSize->22,
+ FontWeight->"Regular"]], "Subtitle",
+ CellChangeTimes->{
+  3.821293131205027*^9},ExpressionUUID->"0ca37c9c-302f-46fd-b79a-\
+dbdb6b9e1e8f"],
+
+Cell["Shadi Zabad and Alan M Moses", "Subsubtitle",
+ CellChangeTimes->{{3.8212931410117493`*^9, 
+  3.8212931473567257`*^9}},ExpressionUUID->"304af16e-2817-492a-aef5-\
+45357d494caf"],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{"SetOptions", "[", 
+   RowBox[{
+    RowBox[{"SelectedNotebook", "[", "]"}], ",", 
+    RowBox[{"PrintingStyleEnvironment", "\[RightArrow]", "\"\<Printout\>\""}],
+     ",", 
+    RowBox[{"ShowSyntaxStyles", "\[RightArrow]", "True"}]}], "]"}],
+  FontFamily->"MathematicaMono",
+  FontSize->5,
+  FontWeight->"Regular",
+  FontColor->RGBColor[
+   0.8780498970016022, 0.8780193789578088, 0.8780193789578088]]], "Input",
+ CellChangeTimes->{
+  3.8212931573001328`*^9},ExpressionUUID->"b1be5575-92d5-408d-9f87-\
+849b4ce5ee14"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["Single Locus Statistics",
+ FontSize->18,
+ FontWeight->"Regular"]], "Section",
+ CellChangeTimes->{
+  3.821293220961854*^9},ExpressionUUID->"36ee9e2a-7c61-449b-bbd8-\
+9f5d1d71ab53"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["Section 1: Defining the central quantities of our \
+model",
+ FontSize->16,
+ FontWeight->"Regular"]], "Subsection",
+ CellChangeTimes->{
+  3.821293335653513*^9},ExpressionUUID->"d8c9b584-6db5-4bcb-ba6c-\
+2e70ac536701"],
+
+Cell[TextData[StyleBox["We start by defining the central quantities that \
+constitute our model. This includes the single-locus transition \
+probabilities:",
+ FontSize->12,
+ FontWeight->"Regular"]], "Text",
+ CellChangeTimes->{{3.8212936165619583`*^9, 3.821293644332963*^9}, {
+  3.821293781721702*^9, 3.821293801290923*^9}, {3.821294466971572*^9, 
+  3.8212944891630096`*^9}},ExpressionUUID->"6ff8344a-d75d-4932-998e-\
+7fbb264c9c17"],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{
+     "The", " ", "probability", " ", "of", " ", "transition", " ", "to", " ", 
+      "the", " ", "k"}], "-", 
+     RowBox[{
+     "th", " ", "allele", " ", "in", " ", "a", " ", "time", " ", "interval", 
+      " ", "t"}]}], " ", "*)"}], "\n", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"P01", "[", 
+      RowBox[{"t_", ",", " ", "pi_"}], "]"}], " ", ":=", " ", 
+     RowBox[{"pi", "*", 
+      RowBox[{"(", 
+       RowBox[{"1", " ", "-", " ", 
+        RowBox[{"Exp", "[", 
+         RowBox[{
+          RowBox[{"-", "u"}], "*", "t"}], "]"}]}], ")"}]}]}], "\n", 
+    RowBox[{"(*", " ", 
+     RowBox[{
+      RowBox[{"The", " ", "probability", " ", "that", " ", "the", " ", "k"}], 
+      "-", 
+      RowBox[{
+      "th", " ", "allele", " ", "remains", " ", "fixed", " ", "in", " ", "a", 
+       " ", "time", " ", "interval", " ", "t"}]}], " ", "*)"}], "\n", 
+    RowBox[{
+     RowBox[{"P11", "[", 
+      RowBox[{"t_", ",", " ", "pi_"}], "]"}], " ", ":=", " ", 
+     RowBox[{
+      RowBox[{"Exp", "[", 
+       RowBox[{
+        RowBox[{"-", "u"}], "*", "t"}], "]"}], " ", "+", " ", 
+      RowBox[{"pi", "*", 
+       RowBox[{"(", 
+        RowBox[{"1", " ", "-", " ", 
+         RowBox[{"Exp", "[", 
+          RowBox[{
+           RowBox[{"-", "u"}], "*", "t"}], "]"}]}], ")"}]}]}]}]}]}],
+  FontFamily->"Source Code Pro",
+  FontSize->11,
+  FontWeight->"SemiBold"]], "Code",
+ CellChangeTimes->{{3.821294565545211*^9, 3.821294655222143*^9}},
+ CellLabel->"In[1]:=",ExpressionUUID->"cb95549e-ebb3-42d6-8d19-cdb057de985f"],
+
+Cell[TextData[StyleBox["As well as the probability of the k-th allele being \
+fixed at any point in time \[OpenCurlyQuote]t\[CloseCurlyQuote]:",
+ FontSize->12,
+ FontWeight->"Regular"]], "Text",
+ CellChangeTimes->{{3.821294526129629*^9, 
+  3.8212945426875*^9}},ExpressionUUID->"e1d5f9ff-2612-417d-87e0-1b568faae72a"],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{
+   RowBox[{"P", "[", 
+    RowBox[{"t_", ",", " ", "p0_", ",", " ", "pi_"}], "]"}], " ", ":=", " ", 
+   RowBox[{
+    RowBox[{"p0", "*", 
+     RowBox[{"Exp", "[", 
+      RowBox[{
+       RowBox[{"-", "u"}], "*", "t"}], "]"}]}], " ", "+", " ", 
+    RowBox[{"pi", "*", 
+     RowBox[{"(", 
+      RowBox[{"1", " ", "-", " ", 
+       RowBox[{"Exp", "[", 
+        RowBox[{
+         RowBox[{"-", "u"}], "*", "t"}], "]"}]}], ")"}]}]}]}],
+  FontFamily->"Source Code Pro",
+  FontSize->11,
+  FontWeight->"SemiBold"]], "Code",
+ CellChangeTimes->{{3.8212946677335253`*^9, 3.8212947034876137`*^9}},
+ CellLabel->"In[3]:=",ExpressionUUID->"ced63d12-0640-424a-96f5-ae71da067f00"],
+
+Cell[TextData[StyleBox["For the next two sections, we need to define the \
+probabilities for two alleles, indexed by `k` and `m`. To simplify notation, \
+we define the following expressions:",
+ FontSize->12,
+ FontWeight->"Regular"]], "Text",
+ CellChangeTimes->{{3.821294807703805*^9, 
+  3.821294844063937*^9}},ExpressionUUID->"e3261423-9c44-400f-be40-\
+42b8e94d96a0"],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{
+     "The", " ", "equilibrium", " ", "probability", " ", "of", " ", "the", 
+      " ", "k"}], "-", 
+     RowBox[{"th", " ", "allele"}]}], " ", "*)"}], "\n", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"pik", " ", "=", " ", 
+      RowBox[{"Subscript", "[", 
+       RowBox[{"\[Pi]", ",", " ", "k"}], "]"}]}], ";"}], "\n", 
+    RowBox[{"(*", " ", 
+     RowBox[{
+      RowBox[{
+      "The", " ", "equilibrium", " ", "probability", " ", "of", " ", "the", 
+       " ", "m"}], "-", 
+      RowBox[{"th", " ", "allele"}]}], " ", "*)"}], "\n", 
+    RowBox[{
+     RowBox[{"pim", " ", "=", " ", 
+      RowBox[{"Subscript", "[", 
+       RowBox[{"\[Pi]", ",", " ", "m"}], "]"}]}], ";"}], "\n", 
+    RowBox[{"(*", " ", 
+     RowBox[{
+      RowBox[{
+      "The", " ", "initial", " ", "probability", " ", "of", " ", "the", " ", 
+       "k"}], "-", 
+      RowBox[{"th", " ", "allele"}]}], " ", "*)"}], "\n", 
+    RowBox[{
+     RowBox[{"p0k", " ", "=", " ", 
+      RowBox[{"Subscript", "[", 
+       RowBox[{"p0", ",", " ", "k"}], "]"}]}], ";"}], "\n", 
+    RowBox[{"(*", " ", 
+     RowBox[{
+      RowBox[{
+      "The", " ", "initial", " ", "probability", " ", "of", " ", "the", " ", 
+       "m"}], "-", 
+      RowBox[{"th", " ", "allele"}]}], " ", "*)"}], "\n", 
+    RowBox[{
+     RowBox[{"p0m", " ", "=", " ", 
+      RowBox[{"Subscript", "[", 
+       RowBox[{"p0", ",", " ", "m"}], "]"}]}], ";"}], "\n", "\n", 
+    RowBox[{"(*", " ", 
+     RowBox[{
+      RowBox[{
+      "The", " ", "probability", " ", "of", " ", "observing", " ", "the", " ",
+        "k"}], "-", 
+      RowBox[{
+      "th", " ", "allele", " ", "at", " ", "any", " ", "point", " ", "in", 
+       " ", "time"}]}], " ", "*)"}], "\n", 
+    RowBox[{
+     RowBox[{"Ptk", " ", "=", " ", 
+      RowBox[{"P", "[", 
+       RowBox[{"t", ",", " ", "p0k", ",", " ", "pik"}], "]"}]}], ";"}], "\n", 
+    
+    RowBox[{"(*", " ", 
+     RowBox[{
+      RowBox[{
+      "The", " ", "probability", " ", "of", " ", "observing", " ", "the", " ",
+        "m"}], "-", 
+      RowBox[{
+      "th", " ", "allele", " ", "at", " ", "any", " ", "point", " ", "in", 
+       " ", "time"}]}], " ", "*)"}], "\n", 
+    RowBox[{
+     RowBox[{"Ptm", " ", "=", " ", 
+      RowBox[{"P", "[", 
+       RowBox[{"t", ",", " ", "p0m", ",", " ", "pim"}], "]"}]}], ";"}]}]}],
+  FontFamily->"Source Code Pro",
+  FontSize->11,
+  FontWeight->"SemiBold"]], "Code",
+ CellChangeTimes->{{3.821294865583701*^9, 3.821294877404993*^9}, {
+  3.821294928989706*^9, 3.821295136230773*^9}},
+ CellLabel->"In[4]:=",ExpressionUUID->"05d02e24-8fc6-4ff8-922f-f4e930979766"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["Section 2: Deriving the covariance in allelic state \
+between two descendant lineages (same allele)",
+ FontSize->16,
+ FontWeight->"Regular"]], "Subsection",
+ CellChangeTimes->{{3.821293359971933*^9, 3.821293370505979*^9}, {
+  3.821293411962832*^9, 
+  3.8212934123393307`*^9}},ExpressionUUID->"3f480aa8-b0f1-4258-b032-\
+b15738df9565"],
+
+Cell[TextData[StyleBox["In Section 3.1 of the Appendix, we defined the \
+covariance in the allelic state in two descendant lineages that diverged at \
+time `t` and then each evolved independently for `s` and `r` time units, \
+respectively. To arrive at an expression for this covariance, first we write \
+out the expression for the joint probability:",
+ FontSize->12,
+ FontWeight->"Regular"]], "Text",
+ CellChangeTimes->{{3.821295183885459*^9, 3.821295254682859*^9}, {
+  3.821296448797874*^9, 
+  3.82129644889342*^9}},ExpressionUUID->"5eec210a-a68d-410c-bec4-\
+727c44dd29e6"],
+
+Cell[BoxData[{
+ StyleBox[
+  RowBox[{
+   RowBox[{"jointProbSameAllele", " ", "=", " ", 
+    RowBox[{
+     RowBox[{"Ptk", "*", 
+      RowBox[{"P11", "[", 
+       RowBox[{"s", ",", " ", "pik"}], "]"}], "*", 
+      RowBox[{"P11", "[", 
+       RowBox[{"r", ",", " ", "pik"}], "]"}]}], " ", "+", " ", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"1", " ", "-", " ", "Ptk"}], ")"}], "*", 
+      RowBox[{"P01", "[", 
+       RowBox[{"s", ",", " ", "pik"}], "]"}], "*", 
+      RowBox[{"P01", "[", 
+       RowBox[{"r", ",", " ", "pik"}], "]"}]}]}]}], ";"}],
+  FontFamily->"Source Code Pro",
+  FontSize->11,
+  FontWeight->"SemiBold"], "\n", 
+ StyleBox[
+  RowBox[{"FullSimplify", "[", "jointProbSameAllele", "]"}],
+  FontFamily->"Source Code Pro",
+  FontSize->11,
+  FontWeight->"SemiBold"]}], "Code",
+ CellChangeTimes->{{3.821295646071316*^9, 3.821295718221435*^9}},
+ CellLabel->"In[12]:=",ExpressionUUID->"e0d83f4b-c230-4345-9c3b-94037dc06555"],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{
+   SuperscriptBox["\[ExponentialE]", 
+    RowBox[{
+     RowBox[{"-", 
+      RowBox[{"(", 
+       RowBox[{"r", "+", "s", "+", "t"}], ")"}]}], " ", "u"}]], " ", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{
+      SubscriptBox["p0", "k"], " ", 
+      RowBox[{"(", 
+       RowBox[{"1", "+", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"-", "2"}], "+", 
+           SuperscriptBox["\[ExponentialE]", 
+            RowBox[{"r", " ", "u"}]], "+", 
+           SuperscriptBox["\[ExponentialE]", 
+            RowBox[{"s", " ", "u"}]]}], ")"}], " ", 
+         SubscriptBox["\[Pi]", "k"]}]}], ")"}]}], "-", 
+     RowBox[{
+      SubscriptBox["\[Pi]", "k"], " ", 
+      RowBox[{"(", 
+       RowBox[{"1", "-", 
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{"t", " ", "u"}]], "+", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"-", "2"}], "+", 
+           SuperscriptBox["\[ExponentialE]", 
+            RowBox[{"r", " ", "u"}]], "+", 
+           SuperscriptBox["\[ExponentialE]", 
+            RowBox[{"s", " ", "u"}]], "+", 
+           SuperscriptBox["\[ExponentialE]", 
+            RowBox[{"t", " ", "u"}]], "-", 
+           SuperscriptBox["\[ExponentialE]", 
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{"r", "+", "s", "+", "t"}], ")"}], " ", "u"}]]}], ")"}], 
+         " ", 
+         SubscriptBox["\[Pi]", "k"]}]}], ")"}]}]}], ")"}]}],
+  FontFamily->"Source Code Pro",
+  FontSize->12,
+  FontWeight->"Regular"]], "Input",
+ CellChangeTimes->{3.821321194414363*^9},
+ CellLabel->"Out[13]=",ExpressionUUID->"9bc22b4f-a503-4693-9ce0-1527cac4fbfa"],
+
+Cell[TextData[StyleBox["And then write the covariance using the standard \
+definition and simplify:",
+ FontSize->12,
+ FontWeight->"Regular"]], "Text",
+ CellChangeTimes->{{3.8212957478197002`*^9, 
+  3.821295758323093*^9}},ExpressionUUID->"05000861-cbce-43af-979a-\
+d3a10c68c655"],
+
+Cell[BoxData[{
+ StyleBox[
+  RowBox[{
+   RowBox[{"covarianceSameAllele", " ", "=", " ", 
+    RowBox[{"jointProbSameAllele", " ", "-", " ", 
+     RowBox[{
+      RowBox[{"P", "[", 
+       RowBox[{
+        RowBox[{"t", " ", "+", " ", "s"}], ",", " ", "p0k", ",", " ", "pik"}],
+        "]"}], "*", 
+      RowBox[{"P", "[", 
+       RowBox[{
+        RowBox[{"t", " ", "+", " ", "r"}], ",", " ", "p0k", ",", " ", "pik"}],
+        "]"}]}]}]}], ";"}],
+  FontFamily->"Source Code Pro",
+  FontSize->11,
+  FontWeight->"SemiBold"], "\n", 
+ StyleBox[
+  RowBox[{"FullSimplify", "[", "covarianceSameAllele", "]"}],
+  FontFamily->"Source Code Pro",
+  FontSize->11,
+  FontWeight->"SemiBold"]}], "Code",
+ CellChangeTimes->{{3.821295772297359*^9, 3.821295842649598*^9}},
+ CellLabel->"In[14]:=",ExpressionUUID->"f3d4b741-6d58-41ec-98a4-d7ecc4b0bacd"],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{
+   RowBox[{"-", 
+    SuperscriptBox["\[ExponentialE]", 
+     RowBox[{
+      RowBox[{"-", 
+       RowBox[{"(", 
+        RowBox[{"r", "+", "s", "+", 
+         RowBox[{"2", " ", "t"}]}], ")"}]}], " ", "u"}]]}], " ", 
+   RowBox[{"(", 
+    RowBox[{
+     SubscriptBox["p0", "k"], "+", 
+     RowBox[{
+      SuperscriptBox["\[ExponentialE]", 
+       RowBox[{"t", " ", "u"}]], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"-", "1"}], "+", 
+        SubscriptBox["\[Pi]", "k"]}], ")"}]}], "-", 
+     SubscriptBox["\[Pi]", "k"]}], ")"}], " ", 
+   RowBox[{"(", 
+    RowBox[{
+     SubscriptBox["p0", "k"], "+", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"-", "1"}], "+", 
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{"t", " ", "u"}]]}], ")"}], " ", 
+      SubscriptBox["\[Pi]", "k"]}]}], ")"}]}],
+  FontFamily->"Source Code Pro",
+  FontSize->12,
+  FontWeight->"Regular"]], "Input",
+ CellChangeTimes->{3.821321200199664*^9},
+ CellLabel->"Out[15]=",ExpressionUUID->"e397d4fa-cd94-4c59-bd08-a417e04896f9"],
+
+Cell[TextData[StyleBox["The above expression resembles some of the central \
+quantities that we defined in Section 1. In fact, if we re-arrange by \
+distributing the `Exp[-2ut]` term inside the two parentheses, we see that the \
+second parenthesis corresponds to the probability of observing the k-th \
+allele at time `t` and the first corresponds to the complement of that \
+probability. This is an intuitive and appealing result, since it says that \
+the covariance is equivalent to the Bernoulli-like variance at time `t` \
+multiplied by an exponential decay term that is proportional to the time \
+elapsed between the two descendant lineages.",
+ FontSize->12,
+ FontWeight->"Regular"]], "Text",
+ CellChangeTimes->{{3.821295885415421*^9, 
+  3.821296006283773*^9}},ExpressionUUID->"76a17b77-76e0-4cb2-bfa1-\
+c33ff95935bb"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["Section 3: Deriving the covariance in allelic state \
+between two descendant lineages (two different alleles)",
+ FontSize->16,
+ FontWeight->"Regular"]], "Subsection",
+ CellChangeTimes->{{3.821293394393465*^9, 
+  3.821293401707654*^9}},ExpressionUUID->"4fe6f4d0-2707-4fc8-9b83-\
+c8dd88732535"],
+
+Cell[TextData[StyleBox["In section 3.1 of the Appendix, we also defined the \
+covariance between two different alleles, indexed by `k` and `m`, in two \
+descendant lineages that diverged at time `t` and then each evolved \
+independently for `s` and `r` time units, respectively. To arrive at an \
+expression for this covariance, first we write out and simplify the \
+expression for the joint probability:",
+ FontSize->12,
+ FontWeight->"Regular"]], "Text",
+ CellChangeTimes->{{3.821296435317086*^9, 
+  3.821296521379204*^9}},ExpressionUUID->"f09012db-1f0a-455d-8061-\
+75c52eae497b"],
+
+Cell[BoxData[{
+ StyleBox[
+  RowBox[{
+   RowBox[{"jointProbTwoAlleles", " ", "=", " ", 
+    RowBox[{
+     RowBox[{"Ptk", "*", 
+      RowBox[{"P11", "[", 
+       RowBox[{"s", ",", " ", "pik"}], "]"}], "*", 
+      RowBox[{"P01", "[", 
+       RowBox[{"r", ",", " ", "pim"}], "]"}]}], " ", "+", " ", 
+     RowBox[{"Ptm", "*", 
+      RowBox[{"P01", "[", 
+       RowBox[{"s", ",", " ", "pik"}], "]"}], "*", 
+      RowBox[{"P11", "[", 
+       RowBox[{"r", ",", " ", "pim"}], "]"}]}], " ", "+", " ", 
+     StyleBox[
+      StyleBox[
+       StyleBox["\n",
+        FontFamily->"Source Code Pro",
+        FontSize->11,
+        FontWeight->"SemiBold"],
+       FontFamily->"Source Code Pro",
+       FontSize->11,
+       FontWeight->"SemiBold"],
+      FontFamily->"Source Code Pro",
+      FontSize->11,
+      FontWeight->"SemiBold"], 
+     StyleBox[
+      RowBox[{
+       StyleBox["\t\t",
+        FontFamily->"Source Code Pro",
+        FontSize->11,
+        FontWeight->"SemiBold"], 
+       StyleBox[
+        StyleBox[
+         StyleBox["\t",
+          FontFamily->"Source Code Pro",
+          FontSize->11,
+          FontWeight->"SemiBold"],
+         FontFamily->"Source Code Pro",
+         FontSize->11,
+         FontWeight->"SemiBold"],
+        FontFamily->"Source Code Pro",
+        FontSize->11,
+        FontWeight->"SemiBold"]}]], 
+     StyleBox[
+      RowBox[{
+       StyleBox["\t\t",
+        FontFamily->"Source Code Pro",
+        FontSize->11,
+        FontWeight->"SemiBold"], 
+       StyleBox[
+        StyleBox[
+         StyleBox[
+          StyleBox[" ",
+           FontFamily->"Source Code Pro",
+           FontSize->11,
+           FontWeight->"SemiBold"],
+          FontFamily->"Source Code Pro",
+          FontSize->11,
+          FontWeight->"SemiBold"],
+         FontFamily->"Source Code Pro",
+         FontSize->11,
+         FontWeight->"SemiBold"],
+        FontFamily->"Source Code Pro",
+        FontSize->11,
+        FontWeight->"SemiBold"]}]], 
+     StyleBox[
+      StyleBox[
+       StyleBox[
+        StyleBox[" ",
+         FontFamily->"Source Code Pro",
+         FontSize->11,
+         FontWeight->"SemiBold"],
+        FontFamily->"Source Code Pro",
+        FontSize->11,
+        FontWeight->"SemiBold"],
+       FontFamily->"Source Code Pro",
+       FontSize->11,
+       FontWeight->"SemiBold"],
+      FontFamily->"Source Code Pro",
+      FontSize->11,
+      FontWeight->"SemiBold"], 
+     RowBox[{
+      RowBox[{"(", " ", 
+       RowBox[{"1", " ", "-", " ", "Ptk", " ", "-", " ", "Ptm"}], ")"}], "*", 
+      
+      RowBox[{"P01", "[", 
+       RowBox[{"s", ",", " ", "pik"}], "]"}], "*", 
+      RowBox[{"P01", "[", 
+       RowBox[{"r", ",", " ", "pim"}], "]"}]}]}]}], ";"}],
+  FontFamily->"Source Code Pro",
+  FontSize->11,
+  FontWeight->"SemiBold"], "\n", 
+ StyleBox[
+  RowBox[{"FullSimplify", "[", "jointProbTwoAlleles", "]"}],
+  FontFamily->"Source Code Pro",
+  FontSize->11,
+  FontWeight->"SemiBold"]}], "Code",
+ CellChangeTimes->{{3.821296554906713*^9, 3.821296654295143*^9}, {
+  3.821321501694333*^9, 
+  3.8213215109729233`*^9}},ExpressionUUID->"ba5b0922-45b1-4ebd-9d39-\
+6b45c4934bda"],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{
+   SuperscriptBox["\[ExponentialE]", 
+    RowBox[{
+     RowBox[{"-", 
+      RowBox[{"(", 
+       RowBox[{"r", "+", "s", "+", "t"}], ")"}]}], " ", "u"}]], " ", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"-", "1"}], "+", 
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{"s", " ", "u"}]]}], ")"}], " ", 
+      SubscriptBox["p0", "m"], " ", 
+      SubscriptBox["\[Pi]", "k"]}], "+", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"-", "1"}], "+", 
+           SuperscriptBox["\[ExponentialE]", 
+            RowBox[{"r", " ", "u"}]]}], ")"}], " ", 
+         SubscriptBox["p0", "k"]}], "-", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"-", "2"}], "+", 
+           SuperscriptBox["\[ExponentialE]", 
+            RowBox[{"r", " ", "u"}]], "+", 
+           SuperscriptBox["\[ExponentialE]", 
+            RowBox[{"s", " ", "u"}]], "+", 
+           SuperscriptBox["\[ExponentialE]", 
+            RowBox[{"t", " ", "u"}]], "-", 
+           SuperscriptBox["\[ExponentialE]", 
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{"r", "+", "s", "+", "t"}], ")"}], " ", "u"}]]}], ")"}], 
+         " ", 
+         SubscriptBox["\[Pi]", "k"]}]}], ")"}], " ", 
+      SubscriptBox["\[Pi]", "m"]}]}], ")"}]}],
+  FontFamily->"Source Code Pro",
+  FontSize->12,
+  FontWeight->"Regular"]], "Input",
+ CellChangeTimes->{3.8213211870564423`*^9},
+ CellLabel->"Out[17]=",ExpressionUUID->"50237380-0245-4542-9c4c-de5358f98fef"],
+
+Cell[TextData[StyleBox["And then write the covariance using the standard \
+definition and simplify:",
+ FontSize->12,
+ FontWeight->"Regular"]], "Text",
+ CellChangeTimes->{{3.8212966617108727`*^9, 
+  3.8212966715900517`*^9}},ExpressionUUID->"132a654f-be51-4471-8289-\
+ec6a57264de9"],
+
+Cell[BoxData[{
+ StyleBox[
+  RowBox[{
+   RowBox[{"covarianceTwoAlleles", " ", "=", " ", 
+    RowBox[{"jointProbTwoAlleles", " ", "-", " ", 
+     RowBox[{
+      RowBox[{"P", "[", 
+       RowBox[{
+        RowBox[{"t", " ", "+", " ", "s"}], ",", " ", "p0k", ",", " ", "pik"}],
+        "]"}], "*", 
+      RowBox[{"P", "[", 
+       RowBox[{
+        RowBox[{"t", " ", "+", " ", "r"}], ",", " ", "p0m", ",", " ", "pim"}],
+        "]"}]}]}]}], ";"}],
+  FontFamily->"Source Code Pro",
+  FontSize->11,
+  FontWeight->"SemiBold"], "\n", 
+ StyleBox[
+  RowBox[{"FullSimplify", "[", "covarianceTwoAlleles", "]"}],
+  FontFamily->"Source Code Pro",
+  FontSize->11,
+  FontWeight->"SemiBold"]}], "Code",
+ CellChangeTimes->{{3.8212966901664457`*^9, 3.821296746338893*^9}},
+ CellLabel->"In[18]:=",ExpressionUUID->"85698c08-f075-4344-a187-79f7c3d18b2f"],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{
+   RowBox[{"-", 
+    SuperscriptBox["\[ExponentialE]", 
+     RowBox[{
+      RowBox[{"-", 
+       RowBox[{"(", 
+        RowBox[{"r", "+", "s", "+", 
+         RowBox[{"2", " ", "t"}]}], ")"}]}], " ", "u"}]]}], " ", 
+   RowBox[{"(", 
+    RowBox[{
+     SubscriptBox["p0", "k"], "+", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"-", "1"}], "+", 
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{"t", " ", "u"}]]}], ")"}], " ", 
+      SubscriptBox["\[Pi]", "k"]}]}], ")"}], " ", 
+   RowBox[{"(", 
+    RowBox[{
+     SubscriptBox["p0", "m"], "+", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"-", "1"}], "+", 
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{"t", " ", "u"}]]}], ")"}], " ", 
+      SubscriptBox["\[Pi]", "m"]}]}], ")"}]}],
+  FontFamily->"Source Code Pro",
+  FontSize->12,
+  FontWeight->"Regular"]], "Input",
+ CellChangeTimes->{3.821321217631536*^9},
+ CellLabel->"Out[19]=",ExpressionUUID->"daf06903-6394-4de3-9fa0-1023b3a737ee"],
+
+Cell[TextData[StyleBox["Similar to our remarks above, this expression can \
+also be expressed in terms of the central quantities defined above. In this \
+case, once we distribute the `Exp[-2ut]` terms, we obtain the probability of \
+observing the k-th allele at time `t` in the first parenthesis and the \
+probability of observing the m-th allele in the second parenthesis. This \
+result is also intuitive, since it conveys the notion that the covariance is \
+equivalent to the Multinomial-like variance at time `t`multiplied by an \
+exponential decay term that is proportional to the time elapsed between the \
+two descendant lineages.",
+ FontSize->12,
+ FontWeight->"Regular"]], "Text",
+ CellChangeTimes->{{3.8212967548275013`*^9, 
+  3.821296872651753*^9}},ExpressionUUID->"432720d9-1cd3-4a7d-9199-\
+3b619df889ca"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["Mean Phenotype Statistics",
+ FontSize->18,
+ FontWeight->"Regular"]], "Section",
+ CellChangeTimes->{
+  3.821293308062323*^9},ExpressionUUID->"18f29e6c-3ac4-4eff-a1fc-\
+3f67b5d541a3"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["Section 4: Demonstration of the idea of \
+\[OpenCurlyDoubleQuote]lumping\[CloseCurlyDoubleQuote] alleles that share \
+effect sizes",
+ FontSize->16,
+ FontWeight->"Regular"]], "Subsection",
+ CellChangeTimes->{
+  3.821293429195203*^9},ExpressionUUID->"4aaba7c1-e5b6-4ed3-8c20-\
+702a1869a763"],
+
+Cell[TextData[StyleBox["In this section, our aim is to show that when the \
+effect sizes are shared across different alleles, then it is possible to \
+simply \[OpenCurlyDoubleQuote]lump\[CloseCurlyDoubleQuote] or group those \
+alleles into a single allele. We will show this heuristically with examples \
+rather than formally with proofs.\nFirst, we start by defining the central \
+quantities that we need for any number of alleles `K`:",
+ FontSize->12,
+ FontWeight->"Regular"]], "Text",
+ CellChangeTimes->{{3.8212969366920233`*^9, 
+  3.82129701827555*^9}},ExpressionUUID->"ce1f455d-2209-48fe-a3b9-\
+333a6eddd378"],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{
+   RowBox[{"(*", " ", 
+    RowBox[{"Number", " ", "of", " ", "alleles"}], " ", "*)"}], "\n", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"K", " ", "=", " ", "6"}], ";"}], "\n", 
+    RowBox[{"(*", " ", 
+     RowBox[{"Unique", " ", "effect", " ", "sizes"}], " ", "*)"}], "\n", 
+    RowBox[{
+     RowBox[{"uniqueBeta", " ", "=", " ", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"Subscript", "[", 
+         RowBox[{"b", ",", " ", "1"}], "]"}], ",", " ", 
+        RowBox[{"Subscript", "[", 
+         RowBox[{"b", ",", " ", "2"}], "]"}]}], "}"}]}], ";"}], "\n", 
+    RowBox[{"(*", " ", 
+     RowBox[{
+     "Number", " ", "of", " ", "unique", " ", "effect", " ", "sizes"}], " ", 
+     "*)"}], "\n", 
+    RowBox[{
+     RowBox[{"uniqueK", " ", "=", " ", 
+      RowBox[{"Length", "[", "uniqueBeta", "]"}]}], ";"}], "\n", 
+    RowBox[{"(*", " ", 
+     RowBox[{
+     "Randomly", " ", "assign", " ", "the", " ", "unique", " ", "effect", " ",
+       "sizes", " ", "to", " ", "the", " ", "K", " ", "alleles"}], " ", 
+     "*)"}], "\n", 
+    RowBox[{
+     RowBox[{"betas", " ", "=", " ", 
+      RowBox[{"RandomChoice", "[", 
+       RowBox[{"uniqueBeta", ",", " ", "K"}], "]"}]}], ";"}], "\n", 
+    RowBox[{"(*", " ", 
+     RowBox[{
+     "Generate", " ", "expressions", " ", "for", " ", "the", " ", 
+      "equilibrium", " ", "probabilities"}], " ", "*)"}], "\n", 
+    RowBox[{
+     RowBox[{"pis", " ", "=", " ", 
+      RowBox[{"Table", "[", 
+       RowBox[{
+        RowBox[{"Subscript", "[", 
+         RowBox[{"\[Pi]", ",", " ", "k"}], "]"}], ",", " ", 
+        RowBox[{"{", 
+         RowBox[{"k", ",", " ", 
+          RowBox[{"Range", "[", "K", "]"}]}], "}"}]}], "]"}]}], ";"}], "\n", 
+    RowBox[{"(*", " ", 
+     RowBox[{
+     "Generate", " ", "expressions", " ", "for", " ", "the", " ", "initial", 
+      " ", "probabilities"}], " ", "*)"}], "\n", 
+    RowBox[{
+     RowBox[{"p0s", " ", "=", " ", 
+      RowBox[{"Table", "[", 
+       RowBox[{
+        RowBox[{"Subscript", "[", 
+         RowBox[{"p0", ",", " ", "k"}], "]"}], ",", " ", 
+        RowBox[{"{", 
+         RowBox[{"k", ",", " ", 
+          RowBox[{"Range", "[", "K", "]"}]}], "}"}]}], "]"}]}], ";"}], "\n", 
+    "\n", 
+    RowBox[{"(*", " ", 
+     RowBox[{
+     "The", " ", "betas", " ", "from", " ", "this", " ", "random", " ", 
+      "draw", " ", 
+      RowBox[{"are", ":"}]}], " ", "*)"}], "\n", "betas"}]}],
+  FontFamily->"Source Code Pro",
+  FontSize->11,
+  FontWeight->"SemiBold"]], "Code",
+ CellChangeTimes->{{3.8212970275710907`*^9, 3.821297251650083*^9}, {
+  3.821298002722033*^9, 3.8212980039765463`*^9}},
+ CellLabel->"In[76]:=",ExpressionUUID->"e74fa832-b5d4-42b0-864d-d56fa45cae87"],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{"{", 
+   RowBox[{
+    SubscriptBox["b", "1"], ",", 
+    SubscriptBox["b", "2"], ",", 
+    SubscriptBox["b", "1"], ",", 
+    SubscriptBox["b", "1"], ",", 
+    SubscriptBox["b", "1"], ",", 
+    SubscriptBox["b", "2"]}], "}"}],
+  FontFamily->"Source Code Pro",
+  FontSize->12,
+  FontWeight->"Regular"]], "Input",
+ CellChangeTimes->{3.821321233382677*^9},
+ CellLabel->"Out[82]=",ExpressionUUID->"152a4276-f4cc-42c0-91a3-a08bc8d733eb"],
+
+Cell[TextData[StyleBox["Given this, we can write the probability of observing \
+each of the K alleles at any point in time `t` as:",
+ FontSize->12,
+ FontWeight->"Regular"]], "Text",
+ CellChangeTimes->{{3.821297282499208*^9, 
+  3.821297300218007*^9}},ExpressionUUID->"644d401d-049a-4eaf-ab63-\
+7205ef05be64"],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{
+   RowBox[{"Pt", " ", "=", " ", 
+    RowBox[{"Table", "[", 
+     RowBox[{
+      RowBox[{"P", "[", 
+       RowBox[{"t", ",", " ", 
+        RowBox[{"p0s", "[", 
+         RowBox[{"[", "k", "]"}], "]"}], ",", " ", 
+        RowBox[{"pis", "[", 
+         RowBox[{"[", "k", "]"}], "]"}]}], "]"}], ",", " ", 
+      RowBox[{"{", 
+       RowBox[{"k", ",", " ", 
+        RowBox[{"Range", "[", "K", "]"}]}], "}"}]}], "]"}]}], ";"}],
+  FontFamily->"Source Code Pro",
+  FontSize->11,
+  FontWeight->"SemiBold"]], "Code",
+ CellChangeTimes->{{3.821297348017198*^9, 3.821297371550186*^9}, {
+  3.821297869738862*^9, 3.821297881755728*^9}},
+ CellLabel->"In[83]:=",ExpressionUUID->"fb10eb39-f42b-4790-a90e-eb9be78dc2f2"],
+
+Cell[TextData[StyleBox["Next, to illustrate the idea of \
+\[OpenCurlyDoubleQuote]lumping\[CloseCurlyDoubleQuote] alleles, we are going \
+to reconstruct the expressions above by summing them for each unique effect \
+size. Thus instead of having `K` alleles, we will have a number of alleles \
+that is equivalent to the cardinality of `uniqueBeta`. In this particular \
+example, we will group a total of 6 alleles into two groups having effect \
+sizes `b1` and `b2`:",
+ FontSize->12,
+ FontWeight->"Regular"]], "Text",
+ CellChangeTimes->{{3.821297381054894*^9, 
+  3.8212974765115843`*^9}},ExpressionUUID->"ce46ad5f-67e1-4803-b3ba-\
+4b666efe6d6f"],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{
+   RowBox[{"(*", " ", 
+    RowBox[{
+    "Indices", " ", "of", " ", "each", " ", "effect", " ", "size", " ", "in", 
+     " ", "`betas`"}], " ", "*)"}], "\n", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"indices", " ", "=", " ", 
+      RowBox[{"Table", "[", 
+       RowBox[{
+        RowBox[{"Flatten", "[", 
+         RowBox[{"Position", "[", 
+          RowBox[{"betas", ",", " ", "k"}], "]"}], "]"}], ",", " ", 
+        RowBox[{"{", 
+         RowBox[{"k", ",", " ", "uniqueBeta"}], "}"}]}], "]"}]}], ";"}], "\n", 
+    RowBox[{"(*", " ", 
+     RowBox[{"Grouping", " ", "equilibrium", " ", "probabilities"}], " ", 
+     "*)"}], "\n", 
+    RowBox[{
+     RowBox[{"groupedPis", " ", "=", " ", 
+      RowBox[{"Table", "[", 
+       RowBox[{
+        RowBox[{"Total", "[", 
+         RowBox[{"Table", "[", 
+          RowBox[{
+           RowBox[{"pis", "[", 
+            RowBox[{"[", "k", "]"}], "]"}], ",", " ", 
+           RowBox[{"{", 
+            RowBox[{"k", ",", " ", "g"}], "}"}]}], "]"}], "]"}], ",", " ", 
+        RowBox[{"{", 
+         RowBox[{"g", ",", " ", "indices"}], "}"}]}], "]"}]}], ";"}], "\n", 
+    RowBox[{"(*", " ", 
+     RowBox[{"Grouping", " ", "initial", " ", "probabilities"}], " ", "*)"}], 
+    "\n", 
+    RowBox[{
+     RowBox[{"groupedP0s", " ", "=", " ", 
+      RowBox[{"Table", "[", 
+       RowBox[{
+        RowBox[{"Total", "[", 
+         RowBox[{"Table", "[", 
+          RowBox[{
+           RowBox[{"p0s", "[", 
+            RowBox[{"[", "k", "]"}], "]"}], ",", " ", 
+           RowBox[{"{", 
+            RowBox[{"k", ",", " ", "g"}], "}"}]}], "]"}], "]"}], ",", " ", 
+        RowBox[{"{", 
+         RowBox[{"g", ",", " ", "indices"}], "}"}]}], "]"}]}], ";"}], "\n", 
+    RowBox[{"(*", " ", 
+     RowBox[{
+     "Probabilities", " ", "of", " ", "observing", " ", "the", " ", "lumped", 
+      " ", "alleles", " ", "at", " ", "any", " ", "point", " ", "in", " ", 
+      "time"}], " ", "*)"}], "\n", 
+    RowBox[{
+     RowBox[{"groupedPt", " ", "=", " ", 
+      RowBox[{"Table", "[", 
+       RowBox[{
+        RowBox[{"P", "[", 
+         RowBox[{"t", ",", " ", 
+          RowBox[{"groupedP0s", "[", 
+           RowBox[{"[", "k", "]"}], "]"}], ",", " ", 
+          RowBox[{"groupedPis", "[", 
+           RowBox[{"[", "k", "]"}], "]"}]}], "]"}], ",", " ", 
+        RowBox[{"{", 
+         RowBox[{"k", ",", " ", 
+          RowBox[{"Range", "[", "uniqueK", "]"}]}], "}"}]}], "]"}]}], ";"}], 
+    "\n", "\n", 
+    RowBox[{"(*", " ", 
+     RowBox[{
+     "This", " ", "results", " ", "in", " ", "lumped", " ", "alleles", " ", 
+      "with", " ", "the", " ", "following", " ", 
+      RowBox[{"probabilities", ":"}]}], " ", "*)"}], "\n", 
+    RowBox[{"{", 
+     RowBox[{"groupedPis", ",", " ", "groupedP0s"}], "}"}]}]}],
+  FontFamily->"Source Code Pro",
+  FontSize->11,
+  FontWeight->"SemiBold"]], "Code",
+ CellChangeTimes->{{3.8212974945113907`*^9, 3.82129781011306*^9}, {
+  3.821297889094776*^9, 3.8212978977742968`*^9}, {3.821297967821457*^9, 
+  3.821297993928693*^9}},
+ CellLabel->"In[84]:=",ExpressionUUID->"0e6f0e2c-b9c4-4735-a3cf-9e99162531f3"],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{
+       SubscriptBox["\[Pi]", "1"], "+", 
+       SubscriptBox["\[Pi]", "3"], "+", 
+       SubscriptBox["\[Pi]", "4"], "+", 
+       SubscriptBox["\[Pi]", "5"]}], ",", 
+      RowBox[{
+       SubscriptBox["\[Pi]", "2"], "+", 
+       SubscriptBox["\[Pi]", "6"]}]}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{
+       SubscriptBox["p0", "1"], "+", 
+       SubscriptBox["p0", "3"], "+", 
+       SubscriptBox["p0", "4"], "+", 
+       SubscriptBox["p0", "5"]}], ",", 
+      RowBox[{
+       SubscriptBox["p0", "2"], "+", 
+       SubscriptBox["p0", "6"]}]}], "}"}]}], "}"}],
+  FontFamily->"Source Code Pro",
+  FontSize->12,
+  FontWeight->"Regular"]], "Input",
+ CellChangeTimes->{3.821321253918043*^9},
+ CellLabel->"Out[88]=",ExpressionUUID->"3a289d7d-9c78-4bb5-99a3-03e514e712a3"],
+
+Cell[TextData[StyleBox["Finally, to assist with deriving the covariance \
+dynamics, we construct functions that define the covariances in allelic \
+state:",
+ FontSize->12,
+ FontWeight->"Regular"]], "Text",
+ CellChangeTimes->{{3.821298042663069*^9, 
+  3.821298077422131*^9}},ExpressionUUID->"ce076010-077d-4559-8a8a-\
+9dd8406f740d"],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{
+   RowBox[{"(*", " ", 
+    RowBox[{
+    "Covariance", " ", "of", " ", "same", " ", "allele", " ", "in", " ", 
+     "two", " ", "descendant", " ", "lineages"}], " ", "*)"}], "\n", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"covarianceSameAlleleF", "[", 
+       RowBox[{"p0_", ",", " ", "pi_"}], "]"}], " ", ":=", " ", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"P", "[", 
+         RowBox[{"t", ",", " ", "p0", ",", " ", "pi"}], "]"}], "*", 
+        RowBox[{"P11", "[", 
+         RowBox[{"s", ",", " ", "pi"}], "]"}], "*", 
+        RowBox[{"P11", "[", 
+         RowBox[{"r", ",", " ", "pi"}], "]"}]}], " ", "+", " ", 
+       StyleBox["\n",
+        FontSize->11,
+        FontWeight->"SemiBold"], 
+       StyleBox[
+        RowBox[{"\t", "\t"}]], 
+       StyleBox[
+        RowBox[{"\t", "\t"}]], 
+       StyleBox[
+        RowBox[{"\t", "\t"}]], 
+       StyleBox[
+        RowBox[{"\t", "\t"}]], 
+       StyleBox[
+        RowBox[{" ", " "}]], 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"1", " ", "-", " ", 
+          RowBox[{"P", "[", 
+           RowBox[{"t", ",", " ", "p0", ",", " ", "pi"}], "]"}]}], ")"}], "*", 
+        RowBox[{"P01", "[", 
+         RowBox[{"s", ",", " ", "pi"}], "]"}], "*", 
+        RowBox[{"P01", "[", 
+         RowBox[{"r", ",", " ", "pi"}], "]"}]}], " ", "-", " ", "\n", 
+       StyleBox[
+        RowBox[{"\t", "\t"}]], 
+       StyleBox[
+        RowBox[{"\t", "\t"}]], 
+       StyleBox[
+        RowBox[{"\t", "\t"}]], 
+       StyleBox[
+        RowBox[{"\t", "\t"}]], 
+       StyleBox[
+        RowBox[{" ", " "}]], 
+       RowBox[{
+        RowBox[{"P", "[", 
+         RowBox[{
+          RowBox[{"t", " ", "+", " ", "s"}], ",", " ", "p0", ",", " ", "pi"}],
+          "]"}], "*", 
+        RowBox[{"P", "[", 
+         RowBox[{
+          RowBox[{"t", " ", "+", " ", "r"}], ",", " ", "p0", ",", " ", "pi"}],
+          "]"}]}]}]}], ";"}], "\n", 
+    RowBox[{"(*", " ", 
+     RowBox[{
+     "Covariance", " ", "of", " ", "two", " ", "different", " ", "alleles", 
+      " ", "in", " ", "two", " ", "descendant", " ", "lineages"}], " ", 
+     "*)"}], "\n", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"covarianceTwoAllelesF", "[", 
+       RowBox[{"p0k_", ",", " ", "pik_", ",", " ", "p0m_", ",", " ", "pim_"}],
+        "]"}], " ", ":=", " ", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"P", "[", 
+         RowBox[{"t", ",", " ", "p0k", ",", " ", "pik"}], "]"}], "*", 
+        RowBox[{"P11", "[", 
+         RowBox[{"s", ",", " ", "pik"}], "]"}], "*", 
+        RowBox[{"P01", "[", 
+         RowBox[{"r", ",", " ", "pim"}], "]"}]}], " ", "+", " ", "\n", 
+       "        ", 
+       RowBox[{
+        RowBox[{"P", "[", 
+         RowBox[{"t", ",", " ", "p0m", ",", " ", "pim"}], "]"}], "*", 
+        RowBox[{"P01", "[", 
+         RowBox[{"s", ",", " ", "pik"}], "]"}], "*", 
+        RowBox[{"P11", "[", 
+         RowBox[{"r", ",", " ", "pim"}], "]"}]}], " ", "+", " ", "\n", 
+       "        ", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"1", " ", "-", " ", 
+          RowBox[{"P", "[", 
+           RowBox[{"t", ",", " ", "p0k", ",", " ", "pik"}], "]"}], " ", "-", 
+          " ", 
+          RowBox[{"P", "[", 
+           RowBox[{"t", ",", " ", "p0m", ",", " ", "pim"}], "]"}]}], ")"}], 
+        "*", 
+        RowBox[{"P01", "[", 
+         RowBox[{"s", ",", " ", "pik"}], "]"}], "*", 
+        RowBox[{"P01", "[", 
+         RowBox[{"r", ",", " ", "pim"}], "]"}]}], " ", "-", "  ", "\n", 
+       "        ", 
+       RowBox[{
+        RowBox[{"P", "[", 
+         RowBox[{
+          RowBox[{"t", " ", "+", " ", "s"}], ",", " ", "p0k", ",", " ", 
+          "pik"}], "]"}], "*", 
+        RowBox[{"P", "[", 
+         RowBox[{
+          RowBox[{"t", " ", "+", " ", "r"}], ",", " ", "p0m", ",", " ", 
+          "pim"}], "]"}]}]}]}], ";"}]}]}],
+  FontSize->11,
+  FontWeight->"SemiBold"]], "Code",
+ CellChangeTimes->{{3.821298146748041*^9, 3.8212983633542223`*^9}, {
+  3.8212984542882*^9, 3.821298565708424*^9}, {3.821298712091672*^9, 
+  3.8212987385927353`*^9}, {3.821321530295402*^9, 
+  3.821321598682259*^9}},ExpressionUUID->"bdcbee11-0f0a-499b-ad5a-\
+425813cb2468"],
+
+Cell[TextData[StyleBox["Test that the functions above return sensible \
+results:",
+ FontSize->12,
+ FontWeight->"Regular"]], "Text",
+ CellChangeTimes->{{3.821298599044958*^9, 
+  3.8212986080202093`*^9}},ExpressionUUID->"1f08b489-b995-4106-a7a5-\
+eaca80bdcaf1"],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{"FullSimplify", "[", 
+   RowBox[{"covarianceSameAlleleF", "[", 
+    RowBox[{"p0k", ",", " ", "pik"}], "]"}], "]"}],
+  FontFamily->"Source Code Pro",
+  FontSize->11,
+  FontWeight->"SemiBold"]], "Code",
+ CellChangeTimes->{{3.821298617239756*^9, 3.821298631834302*^9}},
+ CellLabel->"In[92]:=",ExpressionUUID->"bb3e7bd2-9902-4c92-a7b3-6122047431d8"],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{
+   RowBox[{"-", 
+    SuperscriptBox["\[ExponentialE]", 
+     RowBox[{
+      RowBox[{"-", 
+       RowBox[{"(", 
+        RowBox[{"r", "+", "s", "+", 
+         RowBox[{"2", " ", "t"}]}], ")"}]}], " ", "u"}]]}], " ", 
+   RowBox[{"(", 
+    RowBox[{
+     SubscriptBox["p0", "k"], "+", 
+     RowBox[{
+      SuperscriptBox["\[ExponentialE]", 
+       RowBox[{"t", " ", "u"}]], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"-", "1"}], "+", 
+        SubscriptBox["\[Pi]", "k"]}], ")"}]}], "-", 
+     SubscriptBox["\[Pi]", "k"]}], ")"}], " ", 
+   RowBox[{"(", 
+    RowBox[{
+     SubscriptBox["p0", "k"], "+", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"-", "1"}], "+", 
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{"t", " ", "u"}]]}], ")"}], " ", 
+      SubscriptBox["\[Pi]", "k"]}]}], ")"}]}],
+  FontFamily->"Source Code Pro",
+  FontSize->12,
+  FontWeight->"Regular"]], "Input",
+ CellChangeTimes->{3.821321285316846*^9},
+ CellLabel->"Out[92]=",ExpressionUUID->"847b751c-a8ef-4578-a4ca-4bc33c40045d"],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{"FullSimplify", "[", 
+   RowBox[{"covarianceTwoAllelesF", "[", 
+    RowBox[{"p0k", ",", " ", "pik", ",", " ", "p0m", ",", " ", "pim"}], "]"}],
+    "]"}],
+  FontFamily->"Source Code Pro",
+  FontSize->11,
+  FontWeight->"SemiBold"]], "Code",
+ CellChangeTimes->{{3.821298647022645*^9, 3.821298659499256*^9}},
+ CellLabel->"In[96]:=",ExpressionUUID->"a7a0afc9-8073-46f6-bd1e-2611af21fa96"],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{
+   RowBox[{"-", 
+    SuperscriptBox["\[ExponentialE]", 
+     RowBox[{
+      RowBox[{"-", 
+       RowBox[{"(", 
+        RowBox[{"r", "+", "s", "+", 
+         RowBox[{"2", " ", "t"}]}], ")"}]}], " ", "u"}]]}], " ", 
+   RowBox[{"(", 
+    RowBox[{
+     SubscriptBox["p0", "k"], "+", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"-", "1"}], "+", 
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{"t", " ", "u"}]]}], ")"}], " ", 
+      SubscriptBox["\[Pi]", "k"]}]}], ")"}], " ", 
+   RowBox[{"(", 
+    RowBox[{
+     SubscriptBox["p0", "m"], "+", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"-", "1"}], "+", 
+        SuperscriptBox["\[ExponentialE]", 
+         RowBox[{"t", " ", "u"}]]}], ")"}], " ", 
+      SubscriptBox["\[Pi]", "m"]}]}], ")"}]}],
+  FontFamily->"Source Code Pro",
+  FontSize->12,
+  FontWeight->"Regular"]], "Input",
+ CellChangeTimes->{3.821321296404126*^9},
+ CellLabel->"Out[96]=",ExpressionUUID->"43c5122c-d9fe-4f65-a3ec-7529b515670a"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["The Ensemble Mean Dynamics",
+ FontSize->14,
+ FontWeight->"Regular"]], "Subsubsection",
+ CellChangeTimes->{{3.8212953235593452`*^9, 
+  3.821295327744192*^9}},ExpressionUUID->"283a3b86-5555-4e58-8a4e-\
+1281be1e8e7c"],
+
+Cell[TextData[StyleBox["Here, our aim is to show that the mean dynamics under \
+the full model as well as the simpler \[OpenCurlyDoubleQuote]lumped\
+\[CloseCurlyDoubleQuote] model are identical. Note that we only consider a \
+single locus, since we assume that loci are independent and are subject to \
+the same underlying dynamics. First, we evaluate the full and lumped models \
+according to Equation 14 in the appendix:",
+ FontSize->12,
+ FontWeight->"Regular"]], "Text",
+ CellChangeTimes->{{3.821299040318795*^9, 3.821299123505722*^9}, {
+  3.821299154651029*^9, 3.8212991583945093`*^9}, {3.821299211471801*^9, 
+  3.8212992125928173`*^9}, {3.8212994406279*^9, 
+  3.821299441841002*^9}},ExpressionUUID->"22f365c3-0e28-42ca-a133-\
+6619389b25c3"],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{
+   RowBox[{"(*", " ", 
+    RowBox[{
+    "The", " ", "ensemble", " ", "mean", " ", "under", " ", "the", " ", 
+     "full", " ", "model"}], " ", "*)"}], "\n", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"meanFullModel", " ", "=", " ", 
+      RowBox[{"Total", "[", 
+       RowBox[{"betas", "*", "Pt"}], "]"}]}], ";"}], "\n", 
+    RowBox[{"(*", " ", 
+     RowBox[{
+     "The", " ", "ensemble", " ", "mean", " ", "under", " ", "the", " ", 
+      "lumped", " ", "model"}], " ", "*)"}], "\n", 
+    RowBox[{
+     RowBox[{"meanGroupedModel", " ", "=", " ", 
+      RowBox[{"Total", "[", 
+       RowBox[{"uniqueBeta", "*", "groupedPt"}], "]"}]}], ";"}]}]}],
+  FontFamily->"Source Code Pro",
+  FontSize->11,
+  FontWeight->"SemiBold"]], "Code",
+ CellChangeTimes->{{3.821299169273735*^9, 3.821299228431526*^9}, {
+  3.821299281999762*^9, 3.821299284310361*^9}},
+ CellLabel->"In[98]:=",ExpressionUUID->"c42ee2a3-1aab-497c-ac2d-4d1514f4225d"],
+
+Cell[TextData[StyleBox["And then we check that they are algebraically \
+equivalent with Mathematica:",
+ FontSize->12,
+ FontWeight->"Regular"]], "Text",
+ CellChangeTimes->{{3.821299239856155*^9, 3.821299251295158*^9}, {
+  3.821299312021289*^9, 
+  3.821299316349988*^9}},ExpressionUUID->"7205764a-1f7d-4f58-b963-\
+27c0c02b7fde"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{"FullSimplify", "[", 
+   RowBox[{"meanFullModel", " ", "\[Equal]", " ", "meanGroupedModel"}], "]"}],
+  
+  FontFamily->"Source Code Pro",
+  FontSize->11,
+  FontWeight->"SemiBold"]], "Code",
+ CellChangeTimes->{{3.8212992657991867`*^9, 3.821299288372764*^9}},
+ CellLabel->
+  "In[100]:=",ExpressionUUID->"d37f5666-39b4-418d-affb-eeddf50b8e8f"],
+
+Cell[BoxData["True"], "Output",
+ CellChangeTimes->{{3.821299291430674*^9, 3.821299298777089*^9}},
+ CellLabel->
+  "Out[100]=",ExpressionUUID->"f536043c-116a-4ada-b14d-b786937cbebb"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["The Ensemble Covariance Dynamics",
+ FontSize->14,
+ FontWeight->"Regular"]], "Subsubsection",
+ CellChangeTimes->{{3.82129534718416*^9, 
+  3.8212953521039352`*^9}},ExpressionUUID->"d17bbb13-fd15-40d9-bbbd-\
+7fcd9df30b88"],
+
+Cell[TextData[StyleBox["In this section, our aim is to show that the \
+covariance dynamics under the full model as well as the simpler \
+\[OpenCurlyDoubleQuote]lumped\[CloseCurlyDoubleQuote] model are identical. \
+Note again we only consider a single locus, since the covariance between \
+different loci is assumed to be zero by default and that different loci are \
+subject to the same underlying dynamics. First we evaluate the covariance \
+under the full and lumped models according to Equation 15 in the appendix:",
+ FontSize->12,
+ FontWeight->"Regular"]], "Text",
+ CellChangeTimes->{{3.821299535671277*^9, 
+  3.821299645123953*^9}},ExpressionUUID->"a173bc8c-f75f-4bc0-b55b-\
+9045410a8158"],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{
+   RowBox[{"(*", " ", 
+    RowBox[{
+    "The", " ", "ensemble", " ", "covariance", " ", "under", " ", "the", " ", 
+     "full", " ", "model"}], " ", "*)"}], "\n", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"covarianceFullModel", " ", "=", " ", 
+      RowBox[{"Total", "[", "\n", "\t", 
+       RowBox[{"(*", " ", 
+        RowBox[{"Outer", " ", "loop"}], " ", "*)"}], "\n", "\t", 
+       RowBox[{"Table", "[", "\n", "\t\t", 
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{"betas", "[", 
+             RowBox[{"[", "k", "]"}], "]"}], "^", "2"}], " ", "*", " ", 
+           RowBox[{"covarianceSameAlleleF", "[", 
+            RowBox[{
+             RowBox[{"p0s", "[", 
+              RowBox[{"[", "k", "]"}], "]"}], ",", " ", 
+             RowBox[{"pis", "[", 
+              RowBox[{"[", "k", "]"}], "]"}]}], "]"}]}], " ", "+", "\n", 
+          "\t\t", 
+          RowBox[{"Total", "[", "\n", "\t\t    ", 
+           RowBox[{"(*", " ", 
+            RowBox[{"Inner", " ", "loop"}], " ", "*)"}], "\n", "\t\t\t", 
+           RowBox[{"Table", "[", "\n", "\t\t\t\t", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"betas", "[", 
+               RowBox[{"[", "k", "]"}], "]"}], "*", 
+              RowBox[{"betas", "[", 
+               RowBox[{"[", "m", "]"}], "]"}], "*", 
+              StyleBox[
+               StyleBox[
+                StyleBox[
+                 StyleBox[
+                  StyleBox[
+                   StyleBox[
+                    StyleBox[
+                    StyleBox[
+                    StyleBox[
+                    StyleBox[
+                    StyleBox["\n",
+                    FontFamily->"Source Code Pro",
+                    FontSize->11,
+                    FontWeight->"SemiBold"],
+                    FontFamily->"Source Code Pro",
+                    FontSize->11,
+                    FontWeight->"SemiBold"],
+                    FontFamily->"Source Code Pro",
+                    FontSize->11,
+                    FontWeight->"SemiBold"],
+                    FontFamily->"Source Code Pro",
+                    FontSize->11,
+                    FontWeight->"SemiBold"],
+                    FontFamily->"Source Code Pro",
+                    FontSize->11,
+                    FontWeight->"SemiBold"],
+                    FontFamily->"Source Code Pro",
+                    FontSize->11,
+                    FontWeight->"SemiBold"],
+                   FontFamily->"Source Code Pro",
+                   FontSize->11,
+                   FontWeight->"SemiBold"],
+                  FontFamily->"Source Code Pro",
+                  FontSize->11,
+                  FontWeight->"SemiBold"],
+                 FontFamily->"Source Code Pro",
+                 FontSize->11,
+                 FontWeight->"SemiBold"],
+                FontFamily->"Source Code Pro",
+                FontSize->11,
+                FontWeight->"SemiBold"],
+               FontFamily->"Source Code Pro",
+               FontSize->11,
+               FontWeight->"SemiBold"], 
+              StyleBox[
+               StyleBox[
+                StyleBox[
+                 StyleBox[
+                  StyleBox[
+                   StyleBox[
+                    StyleBox[
+                    StyleBox[
+                    StyleBox[
+                    StyleBox[
+                    StyleBox["\t\t\t\t",
+                    FontFamily->"Source Code Pro",
+                    FontSize->11,
+                    FontWeight->"SemiBold"],
+                    FontFamily->"Source Code Pro",
+                    FontSize->11,
+                    FontWeight->"SemiBold"],
+                    FontFamily->"Source Code Pro",
+                    FontSize->11,
+                    FontWeight->"SemiBold"],
+                    FontFamily->"Source Code Pro",
+                    FontSize->11,
+                    FontWeight->"SemiBold"],
+                    FontFamily->"Source Code Pro",
+                    FontSize->11,
+                    FontWeight->"SemiBold"],
+                    FontFamily->"Source Code Pro",
+                    FontSize->11,
+                    FontWeight->"SemiBold"],
+                   FontFamily->"Source Code Pro",
+                   FontSize->11,
+                   FontWeight->"SemiBold"],
+                  FontFamily->"Source Code Pro",
+                  FontSize->11,
+                  FontWeight->"SemiBold"],
+                 FontFamily->"Source Code Pro",
+                 FontSize->11,
+                 FontWeight->"SemiBold"],
+                FontFamily->"Source Code Pro",
+                FontSize->11,
+                FontWeight->"SemiBold"],
+               FontFamily->"Source Code Pro",
+               FontSize->11,
+               FontWeight->"SemiBold"], 
+              RowBox[{"covarianceTwoAllelesF", "[", 
+               RowBox[{
+                RowBox[{"p0s", "[", 
+                 RowBox[{"[", "k", "]"}], "]"}], ",", " ", 
+                RowBox[{"pis", "[", 
+                 RowBox[{"[", "k", "]"}], "]"}], ",", " ", 
+                RowBox[{"p0s", "[", 
+                 RowBox[{"[", "m", "]"}], "]"}], ",", " ", 
+                RowBox[{"pis", "[", 
+                 RowBox[{"[", "m", "]"}], "]"}]}], "]"}]}], ",", "\n", 
+             "\t\t\t\t", 
+             RowBox[{"{", 
+              RowBox[{"m", ",", " ", 
+               RowBox[{"Select", "[", 
+                RowBox[{
+                 RowBox[{"Range", "[", "K", "]"}], ",", " ", 
+                 RowBox[{
+                  RowBox[{"#", " ", "\[NotEqual]", " ", "k"}], " ", "&"}]}], 
+                "]"}]}], "}"}]}], "\n", "\t\t\t", "]"}], "\n", "\t\t", 
+           "]"}]}], ",", "\n", "\t\t", 
+         RowBox[{"{", 
+          RowBox[{"k", ",", " ", 
+           RowBox[{"Range", "[", "K", "]"}]}], "}"}]}], "\n", "\t", "]"}], 
+       "\t", "\n", "]"}]}], ";"}], "\n", "\n", "\n", 
+    RowBox[{"(*", " ", 
+     RowBox[{
+     "The", " ", "ensemble", " ", "covariance", " ", "under", " ", "the", " ",
+       "lumped", " ", "model"}], " ", "*)"}], "\n", 
+    RowBox[{
+     RowBox[{"covarianceGroupedModel", " ", "=", " ", 
+      RowBox[{"Total", "[", "\n", "\t", 
+       RowBox[{"(*", " ", 
+        RowBox[{"Outer", " ", "loop"}], " ", "*)"}], "\n", "\t", 
+       RowBox[{"Table", "[", "\n", "\t\t", 
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{"uniqueBeta", "[", 
+             RowBox[{"[", "k", "]"}], "]"}], "^", "2"}], " ", "*", " ", 
+           RowBox[{"covarianceSameAlleleF", "[", 
+            RowBox[{
+             RowBox[{"groupedP0s", "[", 
+              RowBox[{"[", "k", "]"}], "]"}], ",", " ", 
+             RowBox[{"groupedPis", "[", 
+              RowBox[{"[", "k", "]"}], "]"}]}], "]"}]}], " ", "+", "\n", 
+          "\t\t", 
+          RowBox[{"Total", "[", "\n", "\t\t    ", 
+           RowBox[{"(*", " ", 
+            RowBox[{"Inner", " ", "loop"}], " ", "*)"}], "\n", "\t\t\t", 
+           RowBox[{"Table", "[", "\n", "\t\t\t\t", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"uniqueBeta", "[", 
+               RowBox[{"[", "k", "]"}], "]"}], "*", 
+              RowBox[{"uniqueBeta", "[", 
+               RowBox[{"[", "m", "]"}], "]"}], "*", 
+              StyleBox[
+               StyleBox[
+                StyleBox[
+                 StyleBox[
+                  StyleBox[
+                   StyleBox[
+                    StyleBox[
+                    StyleBox[
+                    StyleBox[
+                    StyleBox[
+                    StyleBox["\n",
+                    FontFamily->"Source Code Pro",
+                    FontSize->11,
+                    FontWeight->"SemiBold"],
+                    FontFamily->"Source Code Pro",
+                    FontSize->11,
+                    FontWeight->"SemiBold"],
+                    FontFamily->"Source Code Pro",
+                    FontSize->11,
+                    FontWeight->"SemiBold"],
+                    FontFamily->"Source Code Pro",
+                    FontSize->11,
+                    FontWeight->"SemiBold"],
+                    FontFamily->"Source Code Pro",
+                    FontSize->11,
+                    FontWeight->"SemiBold"],
+                    FontFamily->"Source Code Pro",
+                    FontSize->11,
+                    FontWeight->"SemiBold"],
+                   FontFamily->"Source Code Pro",
+                   FontSize->11,
+                   FontWeight->"SemiBold"],
+                  FontFamily->"Source Code Pro",
+                  FontSize->11,
+                  FontWeight->"SemiBold"],
+                 FontFamily->"Source Code Pro",
+                 FontSize->11,
+                 FontWeight->"SemiBold"],
+                FontFamily->"Source Code Pro",
+                FontSize->11,
+                FontWeight->"SemiBold"],
+               FontFamily->"Source Code Pro",
+               FontSize->11,
+               FontWeight->"SemiBold"], 
+              StyleBox[
+               StyleBox[
+                StyleBox[
+                 StyleBox[
+                  StyleBox[
+                   StyleBox[
+                    StyleBox[
+                    StyleBox[
+                    StyleBox[
+                    StyleBox[
+                    StyleBox["\t\t\t\t",
+                    FontFamily->"Source Code Pro",
+                    FontSize->11,
+                    FontWeight->"SemiBold"],
+                    FontFamily->"Source Code Pro",
+                    FontSize->11,
+                    FontWeight->"SemiBold"],
+                    FontFamily->"Source Code Pro",
+                    FontSize->11,
+                    FontWeight->"SemiBold"],
+                    FontFamily->"Source Code Pro",
+                    FontSize->11,
+                    FontWeight->"SemiBold"],
+                    FontFamily->"Source Code Pro",
+                    FontSize->11,
+                    FontWeight->"SemiBold"],
+                    FontFamily->"Source Code Pro",
+                    FontSize->11,
+                    FontWeight->"SemiBold"],
+                   FontFamily->"Source Code Pro",
+                   FontSize->11,
+                   FontWeight->"SemiBold"],
+                  FontFamily->"Source Code Pro",
+                  FontSize->11,
+                  FontWeight->"SemiBold"],
+                 FontFamily->"Source Code Pro",
+                 FontSize->11,
+                 FontWeight->"SemiBold"],
+                FontFamily->"Source Code Pro",
+                FontSize->11,
+                FontWeight->"SemiBold"],
+               FontFamily->"Source Code Pro",
+               FontSize->11,
+               FontWeight->"SemiBold"], 
+              RowBox[{"covarianceTwoAllelesF", "[", 
+               RowBox[{
+                RowBox[{"groupedP0s", "[", 
+                 RowBox[{"[", "k", "]"}], "]"}], ",", " ", 
+                RowBox[{"groupedPis", "[", 
+                 RowBox[{"[", "k", "]"}], "]"}], ",", 
+                StyleBox[
+                 StyleBox[
+                  StyleBox[
+                   StyleBox[
+                    StyleBox[
+                    StyleBox[
+                    StyleBox[
+                    StyleBox[
+                    StyleBox[
+                    StyleBox[
+                    StyleBox[
+                    StyleBox[
+                    StyleBox["\n",
+                    FontFamily->"Source Code Pro",
+                    FontSize->11,
+                    FontWeight->"SemiBold"],
+                    FontFamily->"Source Code Pro",
+                    FontSize->11,
+                    FontWeight->"SemiBold"],
+                    FontFamily->"Source Code Pro",
+                    FontSize->11,
+                    FontWeight->"SemiBold"],
+                    FontFamily->"Source Code Pro",
+                    FontSize->11,
+                    FontWeight->"SemiBold"],
+                    FontFamily->"Source Code Pro",
+                    FontSize->11,
+                    FontWeight->"SemiBold"],
+                    FontFamily->"Source Code Pro",
+                    FontSize->11,
+                    FontWeight->"SemiBold"],
+                    FontFamily->"Source Code Pro",
+                    FontSize->11,
+                    FontWeight->"SemiBold"],
+                    FontFamily->"Source Code Pro",
+                    FontSize->11,
+                    FontWeight->"SemiBold"],
+                    FontFamily->"Source Code Pro",
+                    FontSize->11,
+                    FontWeight->"SemiBold"],
+                    FontFamily->"Source Code Pro",
+                    FontSize->11,
+                    FontWeight->"SemiBold"],
+                   FontFamily->"Source Code Pro",
+                   FontSize->11,
+                   FontWeight->"SemiBold"],
+                  FontFamily->"Source Code Pro",
+                  FontSize->11,
+                  FontWeight->"SemiBold"],
+                 FontFamily->"Source Code Pro",
+                 FontSize->11,
+                 FontWeight->"SemiBold"], 
+                StyleBox[
+                 RowBox[{
+                  StyleBox["\t\t\t\t\t",
+                   FontFamily->"Source Code Pro",
+                   FontSize->11,
+                   FontWeight->"SemiBold"], 
+                  StyleBox[
+                   StyleBox[
+                    StyleBox[
+                    StyleBox[
+                    StyleBox[
+                    StyleBox[
+                    StyleBox[
+                    StyleBox[
+                    StyleBox[
+                    StyleBox[
+                    StyleBox[
+                    StyleBox[
+                    StyleBox["\t",
+                    FontFamily->"Source Code Pro",
+                    FontSize->11,
+                    FontWeight->"SemiBold"],
+                    FontFamily->"Source Code Pro",
+                    FontSize->11,
+                    FontWeight->"SemiBold"],
+                    FontFamily->"Source Code Pro",
+                    FontSize->11,
+                    FontWeight->"SemiBold"],
+                    FontFamily->"Source Code Pro",
+                    FontSize->11,
+                    FontWeight->"SemiBold"],
+                    FontFamily->"Source Code Pro",
+                    FontSize->11,
+                    FontWeight->"SemiBold"],
+                    FontFamily->"Source Code Pro",
+                    FontSize->11,
+                    FontWeight->"SemiBold"],
+                    FontFamily->"Source Code Pro",
+                    FontSize->11,
+                    FontWeight->"SemiBold"],
+                    FontFamily->"Source Code Pro",
+                    FontSize->11,
+                    FontWeight->"SemiBold"],
+                    FontFamily->"Source Code Pro",
+                    FontSize->11,
+                    FontWeight->"SemiBold"],
+                    FontFamily->"Source Code Pro",
+                    FontSize->11,
+                    FontWeight->"SemiBold"],
+                    FontFamily->"Source Code Pro",
+                    FontSize->11,
+                    FontWeight->"SemiBold"],
+                    FontFamily->"Source Code Pro",
+                    FontSize->11,
+                    FontWeight->"SemiBold"],
+                   FontFamily->"Source Code Pro",
+                   FontSize->11,
+                   FontWeight->"SemiBold"]}]], 
+                StyleBox[
+                 RowBox[{
+                  StyleBox["\t\t",
+                   FontFamily->"Source Code Pro",
+                   FontSize->11,
+                   FontWeight->"SemiBold"], 
+                  StyleBox[
+                   StyleBox[
+                    StyleBox[
+                    StyleBox[
+                    StyleBox[
+                    StyleBox[
+                    StyleBox[
+                    StyleBox[
+                    StyleBox[
+                    StyleBox[
+                    StyleBox[
+                    StyleBox[
+                    StyleBox["\t",
+                    FontFamily->"Source Code Pro",
+                    FontSize->11,
+                    FontWeight->"SemiBold"],
+                    FontFamily->"Source Code Pro",
+                    FontSize->11,
+                    FontWeight->"SemiBold"],
+                    FontFamily->"Source Code Pro",
+                    FontSize->11,
+                    FontWeight->"SemiBold"],
+                    FontFamily->"Source Code Pro",
+                    FontSize->11,
+                    FontWeight->"SemiBold"],
+                    FontFamily->"Source Code Pro",
+                    FontSize->11,
+                    FontWeight->"SemiBold"],
+                    FontFamily->"Source Code Pro",
+                    FontSize->11,
+                    FontWeight->"SemiBold"],
+                    FontFamily->"Source Code Pro",
+                    FontSize->11,
+                    FontWeight->"SemiBold"],
+                    FontFamily->"Source Code Pro",
+                    FontSize->11,
+                    FontWeight->"SemiBold"],
+                    FontFamily->"Source Code Pro",
+                    FontSize->11,
+                    FontWeight->"SemiBold"],
+                    FontFamily->"Source Code Pro",
+                    FontSize->11,
+                    FontWeight->"SemiBold"],
+                    FontFamily->"Source Code Pro",
+                    FontSize->11,
+                    FontWeight->"SemiBold"],
+                    FontFamily->"Source Code Pro",
+                    FontSize->11,
+                    FontWeight->"SemiBold"],
+                   FontFamily->"Source Code Pro",
+                   FontSize->11,
+                   FontWeight->"SemiBold"]}]], 
+                StyleBox[
+                 RowBox[{" ", 
+                  StyleBox[
+                   StyleBox[
+                    StyleBox[
+                    StyleBox[
+                    StyleBox[
+                    StyleBox[
+                    StyleBox[
+                    StyleBox[
+                    StyleBox[
+                    StyleBox[
+                    StyleBox[
+                    StyleBox[
+                    StyleBox[" ",
+                    FontFamily->"Source Code Pro",
+                    FontSize->11,
+                    FontWeight->"SemiBold"],
+                    FontFamily->"Source Code Pro",
+                    FontSize->11,
+                    FontWeight->"SemiBold"],
+                    FontFamily->"Source Code Pro",
+                    FontSize->11,
+                    FontWeight->"SemiBold"],
+                    FontFamily->"Source Code Pro",
+                    FontSize->11,
+                    FontWeight->"SemiBold"],
+                    FontFamily->"Source Code Pro",
+                    FontSize->11,
+                    FontWeight->"SemiBold"],
+                    FontFamily->"Source Code Pro",
+                    FontSize->11,
+                    FontWeight->"SemiBold"],
+                    FontFamily->"Source Code Pro",
+                    FontSize->11,
+                    FontWeight->"SemiBold"],
+                    FontFamily->"Source Code Pro",
+                    FontSize->11,
+                    FontWeight->"SemiBold"],
+                    FontFamily->"Source Code Pro",
+                    FontSize->11,
+                    FontWeight->"SemiBold"],
+                    FontFamily->"Source Code Pro",
+                    FontSize->11,
+                    FontWeight->"SemiBold"],
+                    FontFamily->"Source Code Pro",
+                    FontSize->11,
+                    FontWeight->"SemiBold"],
+                    FontFamily->"Source Code Pro",
+                    FontSize->11,
+                    FontWeight->"SemiBold"],
+                   FontFamily->"Source Code Pro",
+                   FontSize->11,
+                   FontWeight->"SemiBold"]}]], 
+                RowBox[{"groupedP0s", "[", 
+                 RowBox[{"[", "m", "]"}], "]"}], ",", " ", 
+                RowBox[{"groupedPis", "[", 
+                 RowBox[{"[", "m", "]"}], "]"}]}], "]"}]}], ",", "\n", 
+             "\t\t\t\t", 
+             RowBox[{"{", 
+              RowBox[{"m", ",", " ", 
+               RowBox[{"Select", "[", 
+                RowBox[{
+                 RowBox[{"Range", "[", "uniqueK", "]"}], ",", " ", 
+                 RowBox[{
+                  RowBox[{"#", " ", "\[NotEqual]", " ", "k"}], " ", "&"}]}], 
+                "]"}]}], "}"}]}], "\n", "\t\t\t", "]"}], "\n", "\t\t", 
+           "]"}]}], ",", "\n", "\t\t", 
+         RowBox[{"{", 
+          RowBox[{"k", ",", " ", 
+           RowBox[{"Range", "[", "uniqueK", "]"}]}], "}"}]}], "\n", "\t", 
+        "]"}], "\t", "\n", "]"}]}], ";"}]}]}],
+  FontFamily->"Source Code Pro",
+  FontSize->11,
+  FontWeight->"SemiBold"]], "Code",
+ CellChangeTimes->{{3.821299755072427*^9, 3.821299782159217*^9}, {
+  3.82130574894775*^9, 3.821306200728034*^9}, {3.8213216703465023`*^9, 
+  3.8213216843057737`*^9}},ExpressionUUID->"98fc1974-f78f-4b90-aebc-\
+1baf03eb8148"],
+
+Cell[TextData[StyleBox["And then we check that they are algebraically \
+equivalent with Mathematica (this may take a while to run, depending on the \
+number of alleles):",
+ FontSize->12,
+ FontWeight->"Regular"]], "Text",
+ CellChangeTimes->{{3.821306228989863*^9, 
+  3.82130624542518*^9}},ExpressionUUID->"be948295-d196-44cb-90c6-\
+78d99186f0be"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{"FullSimplify", "[", 
+   RowBox[{
+   "covarianceFullModel", " ", "\[Equal]", " ", "covarianceGroupedModel"}], 
+   "]"}],
+  FontFamily->"Source Code Pro",
+  FontSize->11,
+  FontWeight->"SemiBold"]], "Code",
+ CellChangeTimes->{{3.821306269352853*^9, 3.821306280521377*^9}},
+ CellLabel->
+  "In[103]:=",ExpressionUUID->"d4e3f734-f80a-47f1-a5dc-9773ec9828a9"],
+
+Cell[BoxData["True"], "Output",
+ CellChangeTimes->{3.821306315005468*^9},
+ CellLabel->
+  "Out[103]=",ExpressionUUID->"902b297b-9640-47b2-917b-ed1cdcb016a3"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{905, 755},
+WindowMargins->{{19, Automatic}, {49, Automatic}},
+PrintingCopies->1,
+PrintingPageRange->{1, Automatic},
+FrontEndVersion->"12.0 for Mac OS X x86 (64-bit) (April 8, 2019)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 278, 6, 122, "Title",ExpressionUUID->"d2d9d8b1-1bdf-4ed3-803d-60a021f5daba"],
+Cell[861, 30, 253, 6, 81, "Subtitle",ExpressionUUID->"0ca37c9c-302f-46fd-b79a-dbdb6b9e1e8f"],
+Cell[1117, 38, 181, 3, 31, "Subsubtitle",ExpressionUUID->"304af16e-2817-492a-aef5-45357d494caf"],
+Cell[1301, 43, 549, 15, 25, "Input",ExpressionUUID->"b1be5575-92d5-408d-9f87-849b4ce5ee14"],
+Cell[CellGroupData[{
+Cell[1875, 62, 203, 5, 54, "Section",ExpressionUUID->"36ee9e2a-7c61-449b-bbd8-9f5d1d71ab53"],
+Cell[CellGroupData[{
+Cell[2103, 71, 240, 6, 49, "Subsection",ExpressionUUID->"d8c9b584-6db5-4bcb-ba6c-2e70ac536701"],
+Cell[2346, 79, 431, 8, 31, "Text",ExpressionUUID->"6ff8344a-d75d-4932-998e-7fbb264c9c17"],
+Cell[2780, 89, 1585, 45, 105, "Code",ExpressionUUID->"cb95549e-ebb3-42d6-8d19-cdb057de985f"],
+Cell[4368, 136, 315, 5, 31, "Text",ExpressionUUID->"e1d5f9ff-2612-417d-87e0-1b568faae72a"],
+Cell[4686, 143, 695, 20, 50, "Code",ExpressionUUID->"ced63d12-0640-424a-96f5-ae71da067f00"],
+Cell[5384, 165, 367, 7, 50, "Text",ExpressionUUID->"e3261423-9c44-400f-be40-42b8e94d96a0"],
+Cell[5754, 174, 2635, 74, 267, "Code",ExpressionUUID->"05d02e24-8fc6-4ff8-922f-f4e930979766"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8426, 253, 357, 7, 49, "Subsection",ExpressionUUID->"3f480aa8-b0f1-4258-b032-b15738df9565"],
+Cell[8786, 262, 575, 10, 69, "Text",ExpressionUUID->"5eec210a-a68d-410c-bec4-727c44dd29e6"],
+Cell[9364, 274, 937, 26, 69, "Code",ExpressionUUID->"e0d83f4b-c230-4345-9c3b-94037dc06555"],
+Cell[10304, 302, 1668, 49, 32, InheritFromParent,ExpressionUUID->"9bc22b4f-a503-4693-9ce0-1527cac4fbfa"],
+Cell[11975, 353, 278, 6, 31, "Text",ExpressionUUID->"05000861-cbce-43af-979a-d3a10c68c655"],
+Cell[12256, 361, 828, 23, 69, "Code",ExpressionUUID->"f3d4b741-6d58-41ec-98a4-d7ecc4b0bacd"],
+Cell[13087, 386, 1076, 35, 32, InheritFromParent,ExpressionUUID->"e397d4fa-cd94-4c59-bd08-a417e04896f9"],
+Cell[14166, 423, 823, 13, 88, "Text",ExpressionUUID->"76a17b77-76e0-4cb2-bfa1-c33ff95935bb"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[15026, 441, 316, 6, 49, "Subsection",ExpressionUUID->"4fe6f4d0-2707-4fc8-9b83-c8dd88732535"],
+Cell[15345, 449, 581, 10, 69, "Text",ExpressionUUID->"f09012db-1f0a-455d-8061-75c52eae497b"],
+Cell[15929, 461, 3095, 102, 87, "Code",ExpressionUUID->"ba5b0922-45b1-4ebd-9d39-6b45c4934bda"],
+Cell[19027, 565, 1631, 49, 32, InheritFromParent,ExpressionUUID->"50237380-0245-4542-9c4c-de5358f98fef"],
+Cell[20661, 616, 280, 6, 31, "Text",ExpressionUUID->"132a654f-be51-4471-8289-ec6a57264de9"],
+Cell[20944, 624, 830, 23, 69, "Code",ExpressionUUID->"85698c08-f075-4344-a187-79f7c3d18b2f"],
+Cell[21777, 649, 1039, 34, 32, InheritFromParent,ExpressionUUID->"daf06903-6394-4de3-9fa0-1023b3a737ee"],
+Cell[22819, 685, 815, 13, 88, "Text",ExpressionUUID->"432720d9-1cd3-4a7d-9199-3b619df889ca"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[23683, 704, 205, 5, 54, "Section",ExpressionUUID->"18f29e6c-3ac4-4eff-a1fc-3f67b5d541a3"],
+Cell[CellGroupData[{
+Cell[23913, 713, 313, 7, 49, "Subsection",ExpressionUUID->"4aaba7c1-e5b6-4ed3-8c20-702a1869a763"],
+Cell[24229, 722, 614, 10, 69, "Text",ExpressionUUID->"ce1f455d-2209-48fe-a3b9-333a6eddd378"],
+Cell[24846, 734, 2683, 71, 303, "Code",ExpressionUUID->"e74fa832-b5d4-42b0-864d-d56fa45cae87"],
+Cell[27532, 807, 465, 14, 29, InheritFromParent,ExpressionUUID->"152a4276-f4cc-42c0-91a3-a08bc8d733eb"],
+Cell[28000, 823, 307, 6, 31, "Text",ExpressionUUID->"644d401d-049a-4eaf-ab63-7205ef05be64"],
+Cell[28310, 831, 735, 20, 50, "Code",ExpressionUUID->"fb10eb39-f42b-4790-a90e-eb9be78dc2f2"],
+Cell[29048, 853, 643, 11, 69, "Text",ExpressionUUID->"ce46ad5f-67e1-4803-b3ba-4b666efe6d6f"],
+Cell[29694, 866, 3085, 81, 231, "Code",ExpressionUUID->"0e6f0e2c-b9c4-4735-a3cf-9e99162531f3"],
+Cell[32782, 949, 885, 28, 31, InheritFromParent,ExpressionUUID->"3a289d7d-9c78-4bb5-99a3-03e514e712a3"],
+Cell[33670, 979, 331, 7, 31, "Text",ExpressionUUID->"ce076010-077d-4559-8a8a-9dd8406f740d"],
+Cell[34004, 988, 4139, 117, 195, "Code",ExpressionUUID->"bdcbee11-0f0a-499b-ad5a-425813cb2468"],
+Cell[38146, 1107, 259, 6, 31, "Text",ExpressionUUID->"1f08b489-b995-4106-a7a5-eaca80bdcaf1"],
+Cell[38408, 1115, 380, 9, 50, "Code",ExpressionUUID->"bb3e7bd2-9902-4c92-a7b3-6122047431d8"],
+Cell[38791, 1126, 1076, 35, 32, InheritFromParent,ExpressionUUID->"847b751c-a8ef-4578-a4ca-4bc33c40045d"],
+Cell[39870, 1163, 418, 10, 50, "Code",ExpressionUUID->"a7a0afc9-8073-46f6-bd1e-2611af21fa96"],
+Cell[40291, 1175, 1039, 34, 32, InheritFromParent,ExpressionUUID->"43c5122c-d9fe-4f65-a3ec-7529b515670a"],
+Cell[CellGroupData[{
+Cell[41355, 1213, 238, 5, 38, "Subsubsection",ExpressionUUID->"283a3b86-5555-4e58-8a4e-1281be1e8e7c"],
+Cell[41596, 1220, 745, 12, 69, "Text",ExpressionUUID->"22f365c3-0e28-42ca-a133-6619389b25c3"],
+Cell[42344, 1234, 956, 25, 105, "Code",ExpressionUUID->"c42ee2a3-1aab-497c-ac2d-4d1514f4225d"],
+Cell[43303, 1261, 326, 7, 31, "Text",ExpressionUUID->"7205764a-1f7d-4f58-b963-27c0c02b7fde"],
+Cell[CellGroupData[{
+Cell[43654, 1272, 374, 10, 50, "Code",ExpressionUUID->"d37f5666-39b4-418d-affb-eeddf50b8e8f"],
+Cell[44031, 1284, 180, 3, 34, "Output",ExpressionUUID->"f536043c-116a-4ada-b14d-b786937cbebb"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[44260, 1293, 243, 5, 38, "Subsubsection",ExpressionUUID->"d17bbb13-fd15-40d9-bbbd-7fcd9df30b88"],
+Cell[44506, 1300, 694, 11, 69, "Text",ExpressionUUID->"a173bc8c-f75f-4bc0-b55b-9045410a8158"],
+Cell[45203, 1313, 20838, 522, 663, "Code",ExpressionUUID->"98fc1974-f78f-4b90-aebc-1baf03eb8148"],
+Cell[66044, 1837, 345, 7, 31, "Text",ExpressionUUID->"be948295-d196-44cb-90c6-78d99186f0be"],
+Cell[CellGroupData[{
+Cell[66414, 1848, 389, 11, 50, "Code",ExpressionUUID->"d4e3f734-f80a-47f1-a5dc-9773ec9828a9"],
+Cell[66806, 1861, 156, 3, 34, "Output",ExpressionUUID->"902b297b-9640-47b2-917b-ed1cdcb016a3"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
