@@ -114,7 +114,7 @@ class GaussianProcessModel(object):
         try:
             L = cholesky(self.cov(), lower=True)
         except Exception as e:
-            raise e
+            return np.inf
 
         # Compute the log-determinant using the cholesky factor:
         log_det = 2 * np.log(np.diag(L)).sum()
@@ -153,20 +153,20 @@ class GaussianProcessModel(object):
 
 class NeutralModel(GaussianProcessModel):
 
-    def __init__(self, data, tree, u=None):
+    def __init__(self, data, tree, fixed_params=None):
 
         super().__init__(data, tree)
 
-        self.fixed_u = u is not None
+        self.fixed_params = fixed_params or {}
 
         # The 5 parameters of the model:
         self.z0 = None  # The ancestral phenotype
         self.z_eq = None  # The equilibrium value of the phenotype
         self.psi = None  # Psi, captures the relationship between ancestral and equilibrium sequence
         self.sigma_eq = None  # The equilibrium variance
-        self.u = u  # The scaling factor u, or the rate in our context
+        self.u = None  # The scaling factor u, or the rate in our context
 
-        self.k = 4 if self.fixed_u else 5  # Number of parameters under the model
+        self.k = 5 - len(self.fixed_params)  # Number of parameters under the model
 
     def mean(self, test=False):
         if test:
@@ -191,29 +191,52 @@ class NeutralModel(GaussianProcessModel):
     def fit(self):
         # Fit the hyperparameters to the data
 
-        init_params = np.random.uniform(size=self.k)
+        init_params = np.random.uniform(size=5)
 
         bounds = [
             (None, None),
             (None, None),
             (1e-12, None),
-            (1e-12, None)
+            (1e-12, None),
+            (1., 2.)
         ]
 
-        if not self.fixed_u:
-            bounds += [(1., 2.)]
-
         def objective(params):
-            if self.k == 4:
-                self.z0, self.z_eq, self.psi, self.sigma_eq = params
-            else:
-                self.z0, self.z_eq, self.psi, self.sigma_eq, self.u = params
+            try:
+                self.z0 = self.fixed_params['Z0']
+            except KeyError:
+                self.z0 = params[0]
+
+            try:
+                self.z_eq = self.fixed_params['Zeq']
+            except KeyError:
+                self.z_eq = params[1]
+
+            try:
+                self.psi = self.fixed_params['Psi']
+            except KeyError:
+                self.psi = params[2]
+
+            try:
+                self.sigma_eq = self.fixed_params['sigma_eq']
+            except KeyError:
+                self.sigma_eq = params[3]
+
+            try:
+                self.u = self.fixed_params['u']
+            except KeyError:
+                self.u = params[4]
 
             return self.nll()
 
         optim_res = optim.minimize(objective,
                                    init_params,
-                                   bounds=bounds)
+                                   bounds=bounds,
+                                   options={'maxiter': 1000})
+
+        inf_params = dict(zip(['Z0', 'Zeq', 'Psi', 'sigma_eq', 'u'],
+                                   optim_res.x))
+        inf_params.update(self.fixed_params)
 
         return {
             'Optimization': {
@@ -225,8 +248,7 @@ class NeutralModel(GaussianProcessModel):
             'AIC': self.aic(optim_res.fun),
             'AIC.c': self.corrected_aic(optim_res.fun),
             'BIC': self.bic(optim_res.fun),
-            'Parameters': dict(zip(['Z0', 'Zeq', 'Psi', 'sigma_eq', 'u'],
-                                   optim_res.x))
+            'Parameters': inf_params
         }
 
 
