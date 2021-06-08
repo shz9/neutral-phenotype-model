@@ -10,9 +10,19 @@ generate_bm_vs_ou_results_geiger <- function(sp_tree, trait_tree_df, segment, tr
     rownames(tdf) <- rownames(trait_tree_df)
     
     bm_res <- fitContinuous(sp_tree, tdf, model="BM",
-                            control=list(method=c("L-BFGS-B"), niter=100, FAIL=1e200, abstol=1e-6, hessian=FALSE, CI=0.95))
-    ou_res <- fitContinuous(sp_tree, tdf, model="OU", bounds=list(alpha=c(1e-12, 1e12)),
-                            control=list(method=c("L-BFGS-B"), niter=100, FAIL=1e200, abstol=1e-6, hessian=FALSE, CI=0.95))
+                            control=list(method=c("L-BFGS-B"), 
+                                         niter=100, FAIL=1e200, 
+                                         hessian=FALSE, 
+                                         CI=0.95),
+                            bounds=list(sigsq=c(min=1e-12,max=1e12))
+    )
+    ou_res <- fitContinuous(sp_tree, tdf, model="OU",
+                            control=list(method=c("L-BFGS-B"),
+                                         niter=100, FAIL=1e200, 
+                                         hessian=FALSE, CI=0.95),
+                            bounds=list(sigsq=c(min=1e-12,max=1e12), 
+                                        alpha=c(min=1e-12,max=1e12))
+                            )
     
     return(list(segment,
                 trait_name,

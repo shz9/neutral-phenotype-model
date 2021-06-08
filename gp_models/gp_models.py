@@ -38,10 +38,11 @@ def get_time_matrices(tree, tips=None):
 
 class GaussianProcessModel(object):
 
-    def __init__(self, data, tree):
+    def __init__(self, data, tree, loss='nll'):
 
         self.tree = tree
         self.data = data
+        self.loss = loss
 
         tree_terminals = [ts.name for ts in self.tree.get_terminals()]
 
@@ -101,6 +102,35 @@ class GaussianProcessModel(object):
         return pd.Series(self.mean(test=True) + np.dot(self.cov(test=True), self.Ky),
                          index=np.array(self.tips)[self.test_mask])
 
+    def pairwise_divergence_loss(self):
+        """
+        NOTE: This loss function is non-convex and we do not recommend
+        fitting models using it. Included only for experimental purposes.
+        """
+
+        obs_phenotypes = self.data[np.array(self.tips)[self.training_mask]]
+        exp_mean = self.mean()
+        exp_covariance = self.cov()
+
+        # Pairwise divergence loss:
+        obs_div = []  # Observed divergence
+        exp_div = []  # Expected divergence
+
+        for i in range(len(obs_phenotypes)):
+            for j in range(i + 1, len(obs_phenotypes)):
+                obs_div.append((obs_phenotypes[i] - obs_phenotypes[j])**2)
+                exp_div.append(
+                        exp_covariance[i, i] + exp_covariance[j, j] - 2.*exp_covariance[i, j] +
+                        (exp_mean[i] - exp_mean[j])**2
+                )
+
+        obs_div = np.array(obs_div)
+        exp_div = np.array(exp_div)
+
+        # Mean squared loss between observed divergence
+        # and expected divergence:
+        return (np.abs(obs_div - exp_div)).mean()
+
     def nll(self):
         # The negative loglikelihood
 
@@ -114,6 +144,7 @@ class GaussianProcessModel(object):
         try:
             L = cholesky(self.cov(), lower=True)
         except Exception as e:
+            print(e)
             return np.inf
 
         # Compute the log-determinant using the cholesky factor:
@@ -191,13 +222,21 @@ class NeutralModel(GaussianProcessModel):
     def fit(self):
         # Fit the hyperparameters to the data
 
-        init_params = np.random.uniform(size=5)
+        data_mean = self.data[np.array(self.tips)[self.training_mask]].mean()
+
+        init_params = np.array([
+            data_mean,
+            data_mean,
+            np.random.uniform(),
+            np.random.uniform(),
+            np.random.uniform()
+        ])
 
         bounds = [
             (None, None),
             (None, None),
-            (1e-12, None),
-            (1e-12, None),
+            (1e-12, 1e12),
+            (1e-12, 1e12),
             (1., 2.)
         ]
 
@@ -227,36 +266,57 @@ class NeutralModel(GaussianProcessModel):
             except KeyError:
                 self.u = params[4]
 
-            return self.nll()
+            if self.loss == 'nll':
+                return self.nll()
+            else:
+                return self.pairwise_divergence_loss()
 
         optim_res = optim.minimize(objective,
                                    init_params,
+                                   method='L-BFGS-B',
                                    bounds=bounds,
-                                   options={'maxiter': 1000})
+                                   options={'maxiter': 100})
 
         inf_params = dict(zip(['Z0', 'Zeq', 'Psi', 'sigma_eq', 'u'],
-                                   optim_res.x))
+                              optim_res.x))
         inf_params.update(self.fixed_params)
+
+        if self.loss == 'nll':
+            nll = optim_res.fun
+            div = self.pairwise_divergence_loss()
+        else:
+            div = optim_res.fun
+            nll = self.nll()
 
         return {
             'Optimization': {
                 'Success': optim_res.success,
                 'Message': optim_res.message
             },
-            'Loglikelihood': -optim_res.fun,
+            'Loglikelihood': -nll,
+            'Pairwise divergence loss': div,
             'DOF': self.k,
-            'AIC': self.aic(optim_res.fun),
-            'AIC.c': self.corrected_aic(optim_res.fun),
-            'BIC': self.bic(optim_res.fun),
+            'AIC': self.aic(nll),
+            'AIC.c': self.corrected_aic(nll),
+            'BIC': self.bic(nll),
             'Parameters': inf_params
         }
 
 
 class OU(GaussianProcessModel):
 
-    def __init__(self, data, tree, equilibrium_z0=False):
+    def __init__(self, data, tree, equilibrium_z0=False, init_BM=True):
 
         super().__init__(data, tree)
+
+        self.bm_params = None
+
+        # If the init_BM flag is set to true,
+        # we initialize the fitting procedure with
+        # the maximum-likelihood estimates of the BM model parameters.
+        if init_BM:
+            bm = BM(data, tree)
+            self.bm_params = bm.fit()['Parameters']
 
         self.eq_z0 = equilibrium_z0  # set the ancestral phenotype to the equilibrium phenotype
 
@@ -293,12 +353,33 @@ class OU(GaussianProcessModel):
     def fit(self):
         # Fit the hyperparameters to the data
 
-        init_params = np.random.uniform(size=self.k)
+        if self.bm_params is not None:
+            # If the BM model parameters are provided,
+            # initialize corresponding parameters with
+            # those estimates.
+            if self.eq_z0:
+                init_params = np.array([self.bm_params['Z0'],
+                                        self.bm_params['sigma'], .1])
+            else:
+                init_params = np.array([self.bm_params['Z0'], self.bm_params['Z0'],
+                                        self.bm_params['sigma'], .1])
+        else:
+            # Otherwise, initialize randomly.
+            data_mean = self.data[np.array(self.tips)[self.training_mask]].mean()
+            if self.eq_z0:
+                init_params = [data_mean, np.random.uniform(),
+                               np.random.uniform()]
+            else:
+
+                init_params = [data_mean, data_mean,
+                               np.random.uniform(), np.random.uniform()]
+
+            init_params = np.array(init_params)
 
         bounds = [
             (None, None),
-            (1e-12, None),
-            (1e-12, None)
+            (1e-12, 1e12),
+            (1e-12, 1e12)
         ]
 
         if not self.eq_z0:
@@ -311,22 +392,35 @@ class OU(GaussianProcessModel):
             else:
                 self.z0, self.z_eq, self.sigma, self.alpha = params
 
-            return self.nll()
+            if self.loss == 'nll':
+                return self.nll()
+            else:
+                return self.pairwise_divergence_loss()
 
         optim_res = optim.minimize(objective,
                                    init_params,
-                                   bounds=bounds)
+                                   method='L-BFGS-B',
+                                   bounds=bounds,
+                                   options={'maxiter': 100})
+
+        if self.loss == 'nll':
+            nll = optim_res.fun
+            div = self.pairwise_divergence_loss()
+        else:
+            div = optim_res.fun
+            nll = self.nll()
 
         return {
             'Optimization': {
                 'Success': optim_res.success,
                 'Message': optim_res.message
             },
-            'Loglikelihood': -optim_res.fun,
+            'Loglikelihood': -nll,
+            'Pairwise divergence loss': div,
             'DOF': self.k,
-            'AIC': self.aic(optim_res.fun),
-            'AIC.c': self.corrected_aic(optim_res.fun),
-            'BIC': self.bic(optim_res.fun),
+            'AIC': self.aic(nll),
+            'AIC.c': self.corrected_aic(nll),
+            'BIC': self.bic(nll),
             'Parameters': dict(zip(['Z0', 'Zeq', 'sigma', 'alpha'][-self.k:],
                                    optim_res.x))
         }
@@ -344,7 +438,10 @@ class BM(GaussianProcessModel):
         self.k = 2  # Number of parameters under the model
 
     def mean(self, test=False):
-        return self.z0
+        if test:
+            return np.repeat(self.z0, len(self.test_mask))
+        else:
+            return np.repeat(self.z0, len(self.training_mask))
 
     def cov(self, test=False):
         if test:
@@ -358,31 +455,47 @@ class BM(GaussianProcessModel):
     def fit(self):
         # Fit the hyperparameters to the data
 
-        init_params = np.random.uniform(size=self.k)
+        data_points = self.data[np.array(self.tips)[self.training_mask]]
+        init_params = np.array([data_points.mean(),
+                                np.random.uniform()])
 
         bounds = [
             (None, None),
-            (1e-12, None)
+            (1e-12, 1e12)
         ]
 
         def objective(params):
             self.z0, self.sigma = params
-            return self.nll()
+
+            if self.loss == 'nll':
+                return self.nll()
+            else:
+                return self.pairwise_divergence_loss()
 
         optim_res = optim.minimize(objective,
                                    init_params,
-                                   bounds=bounds)
+                                   method='L-BFGS-B',
+                                   bounds=bounds,
+                                   options={'maxiter': 100})
+
+        if self.loss == 'nll':
+            nll = optim_res.fun
+            div = self.pairwise_divergence_loss()
+        else:
+            div = optim_res.fun
+            nll = self.nll()
 
         return {
             'Optimization': {
                 'Success': optim_res.success,
                 'Message': optim_res.message
             },
-            'Loglikelihood': -optim_res.fun,
+            'Loglikelihood': -nll,
+            'Pairwise divergence loss': div,
             'DOF': self.k,
-            'AIC': self.aic(optim_res.fun),
-            'AIC.c': self.corrected_aic(optim_res.fun),
-            'BIC': self.bic(optim_res.fun),
+            'AIC': self.aic(nll),
+            'AIC.c': self.corrected_aic(nll),
+            'BIC': self.bic(nll),
             'Parameters': dict(zip(['Z0', 'sigma'],
                                    optim_res.x))
         }

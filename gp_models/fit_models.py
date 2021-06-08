@@ -50,23 +50,28 @@ for f in glob.glob(osp.join(traits, "*", "traits.csv")):
     tree = Phylo.read(osp.join(tree_dir, seq_name + ".nwk"), "newick")
 
     for t in data.columns:
-        print(t)
+        print("-------------------")
+        print(">", t)
 
         if simulated_sequences:
             true_z0 = trait_func[t](root_seq)
         else:
             true_z0 = None
 
+        print("Fitting neutral models...")
         try:
             m = NeutralModel(data[t], tree)
             fit = m.fit()
             res.append({'Trait': t, 'Sequence': seq_name, 'Model': 'NeutralModel',
                         'Log-likelihood': fit['Loglikelihood'], 'Corrected AIC': fit['AIC.c'],
+                        'Pairwise Divergence Error': fit['Pairwise divergence loss'],
                         'LOCO MSE': m.fit_loco()['MSE'][0],
                         'Z0': fit['Parameters']['Z0'], 'True Z0': true_z0, 'Zeq': fit['Parameters']['Zeq']})
-        except Exception:
+        except Exception as e:
+            print(e)
             res.append({'Trait': t, 'Sequence': seq_name, 'Model': 'NeutralModel',
-                        'Log-likelihood': None, 'Corrected AIC': None, 'LOCO MSE': None,
+                        'Log-likelihood': None, 'Corrected AIC': None,
+                        'Pairwise Divergence Error': None, 'LOCO MSE': None,
                         'Z0': None, 'True Z0': None, 'Zeq': None})
 
         try:
@@ -74,11 +79,14 @@ for f in glob.glob(osp.join(traits, "*", "traits.csv")):
             fit = m.fit()
             res.append({'Trait': t, 'Sequence': seq_name, 'Model': 'NeutralModel (fixed u=1.34)',
                         'Log-likelihood': fit['Loglikelihood'], 'Corrected AIC': fit['AIC.c'],
+                        'Pairwise Divergence Error': fit['Pairwise divergence loss'],
                         'LOCO MSE': m.fit_loco()['MSE'][0],
                         'Z0': fit['Parameters']['Z0'], 'True Z0': true_z0, 'Zeq': fit['Parameters']['Zeq']})
-        except Exception:
+        except Exception as e:
+            print(e)
             res.append({'Trait': t, 'Sequence': seq_name, 'Model': 'NeutralModel (fixed u=1.34)',
-                        'Log-likelihood': None, 'Corrected AIC': None, 'LOCO MSE': None,
+                        'Log-likelihood': None, 'Corrected AIC': None,
+                        'Pairwise Divergence Error': None, 'LOCO MSE': None,
                         'Z0': None, 'True Z0': None, 'Zeq': None})
 
         if t == 'gc_content':
@@ -87,11 +95,14 @@ for f in glob.glob(osp.join(traits, "*", "traits.csv")):
                 fit = m.fit()
                 res.append({'Trait': t, 'Sequence': seq_name, 'Model': 'NeutralModel (fixed u=1.34, Z_eq=0.44)',
                             'Log-likelihood': fit['Loglikelihood'], 'Corrected AIC': fit['AIC.c'],
+                            'Pairwise Divergence Error': fit['Pairwise divergence loss'],
                             'LOCO MSE': m.fit_loco()['MSE'][0],
                             'Z0': fit['Parameters']['Z0'], 'True Z0': true_z0, 'Zeq': fit['Parameters']['Zeq']})
-            except Exception:
+            except Exception as e:
+                print(e)
                 res.append({'Trait': t, 'Sequence': seq_name, 'Model': 'NeutralModel (fixed u=1.34, Z_eq=0.44)',
-                            'Log-likelihood': None, 'Corrected AIC': None, 'LOCO MSE': None,
+                            'Log-likelihood': None, 'Corrected AIC': None,
+                            'Pairwise Divergence Error': None, 'LOCO MSE': None,
                             'Z0': None, 'True Z0': None, 'Zeq': None})
 
             try:
@@ -101,12 +112,15 @@ for f in glob.glob(osp.join(traits, "*", "traits.csv")):
                 res.append({'Trait': t, 'Sequence': seq_name,
                             'Model': 'NeutralModel (fixed u=1.34, Z_eq=0.44, sigma_eq=0.2464/L)',
                             'Log-likelihood': fit['Loglikelihood'], 'Corrected AIC': fit['AIC.c'],
+                            'Pairwise Divergence Error': fit['Pairwise divergence loss'],
                             'LOCO MSE': m.fit_loco()['MSE'][0],
                             'Z0': fit['Parameters']['Z0'], 'True Z0': true_z0, 'Zeq': fit['Parameters']['Zeq']})
-            except Exception:
+            except Exception as e:
+                print(e)
                 res.append({'Trait': t, 'Sequence': seq_name,
                             'Model': 'NeutralModel (fixed u=1.34, Z_eq=0.44, sigma_eq=0.2464/L)',
-                            'Log-likelihood': None, 'Corrected AIC': None, 'LOCO MSE': None,
+                            'Log-likelihood': None, 'Corrected AIC': None,
+                            'Pairwise Divergence Error': None, 'LOCO MSE': None,
                             'Z0': None, 'True Z0': None, 'Zeq': None})
 
         elif t == 'A_percent':
@@ -115,11 +129,14 @@ for f in glob.glob(osp.join(traits, "*", "traits.csv")):
                 fit = m.fit()
                 res.append({'Trait': t, 'Sequence': seq_name, 'Model': 'NeutralModel (fixed u=1.34, Z_eq=0.28)',
                             'Log-likelihood': fit['Loglikelihood'], 'Corrected AIC': fit['AIC.c'],
+                            'Pairwise Divergence Error': fit['Pairwise divergence loss'],
                             'LOCO MSE': m.fit_loco()['MSE'][0],
                             'Z0': fit['Parameters']['Z0'], 'True Z0': true_z0, 'Zeq': fit['Parameters']['Zeq']})
-            except Exception:
+            except Exception as e:
+                print(e)
                 res.append({'Trait': t, 'Sequence': seq_name, 'Model': 'NeutralModel (fixed u=1.34, Z_eq=0.28)',
-                            'Log-likelihood': None, 'Corrected AIC': None, 'LOCO MSE': None,
+                            'Log-likelihood': None, 'Corrected AIC': None,
+                            'Pairwise Divergence Error': None, 'LOCO MSE': None,
                             'Z0': None, 'True Z0': None, 'Zeq': None})
 
             try:
@@ -129,24 +146,31 @@ for f in glob.glob(osp.join(traits, "*", "traits.csv")):
                 res.append({'Trait': t, 'Sequence': seq_name,
                             'Model': 'NeutralModel (fixed u=1.34, Z_eq=0.28, sigma_eq=0.2016/L)',
                             'Log-likelihood': fit['Loglikelihood'], 'Corrected AIC': fit['AIC.c'],
+                            'Pairwise Divergence Error': fit['Pairwise divergence loss'],
                             'LOCO MSE': m.fit_loco()['MSE'][0],
                             'Z0': fit['Parameters']['Z0'], 'True Z0': true_z0, 'Zeq': fit['Parameters']['Zeq']})
-            except Exception:
+            except Exception as e:
+                print(e)
                 res.append({'Trait': t, 'Sequence': seq_name,
                             'Model': 'NeutralModel (fixed u=1.34, Z_eq=0.28, sigma_eq=0.2016/L)',
-                            'Log-likelihood': None, 'Corrected AIC': None, 'LOCO MSE': None,
+                            'Log-likelihood': None, 'Corrected AIC': None,
+                            'Pairwise Divergence Error': None, 'LOCO MSE': None,
                             'Z0': None, 'True Z0': None, 'Zeq': None})
 
+        print("Fitting OU models...")
         try:
             m = OU(data[t], tree)
             fit = m.fit()
             res.append({'Trait': t, 'Sequence': seq_name, 'Model': 'OU',
                         'Log-likelihood': fit['Loglikelihood'], 'Corrected AIC': fit['AIC.c'],
+                        'Pairwise Divergence Error': fit['Pairwise divergence loss'],
                         'LOCO MSE': m.fit_loco()['MSE'][0],
                         'Z0': fit['Parameters']['Z0'], 'True Z0': true_z0, 'Zeq': fit['Parameters']['Zeq']})
-        except Exception:
+        except Exception as e:
+            print(e)
             res.append({'Trait': t, 'Sequence': seq_name, 'Model': 'OU',
-                        'Log-likelihood': None, 'Corrected AIC': None, 'LOCO MSE': None,
+                        'Log-likelihood': None, 'Corrected AIC': None,
+                        'Pairwise Divergence Error': None, 'LOCO MSE': None,
                         'Z0': None, 'True Z0': None, 'Zeq': None})
 
         try:
@@ -154,23 +178,30 @@ for f in glob.glob(osp.join(traits, "*", "traits.csv")):
             fit = m.fit()
             res.append({'Trait': t, 'Sequence': seq_name, 'Model': 'OU (Z0=Zeq)',
                         'Log-likelihood': fit['Loglikelihood'], 'Corrected AIC': fit['AIC.c'],
+                        'Pairwise Divergence Error': fit['Pairwise divergence loss'],
                         'LOCO MSE': m.fit_loco()['MSE'][0],
                         'Z0': fit['Parameters']['Zeq'], 'True Z0': true_z0, 'Zeq': fit['Parameters']['Zeq']})
-        except Exception:
+        except Exception as e:
+            print(e)
             res.append({'Trait': t, 'Sequence': seq_name, 'Model': 'OU (Z0=Zeq)',
-                        'Log-likelihood': None, 'Corrected AIC': None, 'LOCO MSE': None,
+                        'Log-likelihood': None, 'Corrected AIC': None,
+                        'Pairwise Divergence Error': None, 'LOCO MSE': None,
                         'Z0': None, 'True Z0': None, 'Zeq': None})
 
+        print("Fitting BM models...")
         try:
             m = BM(data[t], tree)
             fit = m.fit()
             res.append({'Trait': t, 'Sequence': seq_name, 'Model': 'BM',
                         'Log-likelihood': fit['Loglikelihood'], 'Corrected AIC': fit['AIC.c'],
+                        'Pairwise Divergence Error': fit['Pairwise divergence loss'],
                         'LOCO MSE': m.fit_loco()['MSE'][0],
                         'Z0': fit['Parameters']['Z0'], 'True Z0': true_z0, 'Zeq': fit['Parameters']['Z0']})
-        except Exception:
+        except Exception as e:
+            print(e)
             res.append({'Trait': t, 'Sequence': seq_name, 'Model': 'BM',
-                        'Log-likelihood': None, 'Corrected AIC': None, 'LOCO MSE': None,
+                        'Log-likelihood': None, 'Corrected AIC': None,
+                        'Pairwise Divergence Error': None, 'LOCO MSE': None,
                         'Z0': None, 'True Z0': None, 'Zeq': None})
 
 
