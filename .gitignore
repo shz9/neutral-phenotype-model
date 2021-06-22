@@ -1,3 +1,6 @@
 .ipynb_checkpoints
 .idea
+.DS_Store
 appendix_vis
+simulation_analysis/data/q_traits
+simulation_analysis/data/simulated_sequences

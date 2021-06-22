@@ -14,7 +14,7 @@ from compute_q_traits import (calculate_gc_content, calculate_longest_orf,
                               calculate_percent_A, calculate_longest_orf_alan)
 
 paml_trees = True
-simulated_sequences = False
+simulated_sequences = True
 
 trait_func = {
     "gc_content": calculate_gc_content,
@@ -75,6 +75,21 @@ for f in glob.glob(osp.join(traits, "*", "traits.csv")):
                         'Z0': None, 'True Z0': None, 'Zeq': None})
 
         try:
+            m = NeutralModel(data[t], tree, equilibrium_z0=True)
+            fit = m.fit()
+            res.append({'Trait': t, 'Sequence': seq_name, 'Model': 'NeutralModel (Z0=Zeq)',
+                        'Log-likelihood': fit['Loglikelihood'], 'Corrected AIC': fit['AIC.c'],
+                        'Pairwise Divergence Error': fit['Pairwise divergence loss'],
+                        'LOCO MSE': m.fit_loco()['MSE'][0],
+                        'Z0': fit['Parameters']['Z0'], 'True Z0': true_z0, 'Zeq': fit['Parameters']['Zeq']})
+        except Exception as e:
+            print(e)
+            res.append({'Trait': t, 'Sequence': seq_name, 'Model': 'NeutralModel (Z0=Zeq)',
+                        'Log-likelihood': None, 'Corrected AIC': None,
+                        'Pairwise Divergence Error': None, 'LOCO MSE': None,
+                        'Z0': None, 'True Z0': None, 'Zeq': None})
+
+        try:
             m = NeutralModel(data[t], tree, fixed_params={'u': 1.34})
             fit = m.fit()
             res.append({'Trait': t, 'Sequence': seq_name, 'Model': 'NeutralModel (fixed u=1.34)',
@@ -85,6 +100,21 @@ for f in glob.glob(osp.join(traits, "*", "traits.csv")):
         except Exception as e:
             print(e)
             res.append({'Trait': t, 'Sequence': seq_name, 'Model': 'NeutralModel (fixed u=1.34)',
+                        'Log-likelihood': None, 'Corrected AIC': None,
+                        'Pairwise Divergence Error': None, 'LOCO MSE': None,
+                        'Z0': None, 'True Z0': None, 'Zeq': None})
+
+        try:
+            m = NeutralModel(data[t], tree, equilibrium_z0=True, fixed_params={'u': 1.34})
+            fit = m.fit()
+            res.append({'Trait': t, 'Sequence': seq_name, 'Model': 'NeutralModel (Z0=Zeq, fixed u=1.34)',
+                        'Log-likelihood': fit['Loglikelihood'], 'Corrected AIC': fit['AIC.c'],
+                        'Pairwise Divergence Error': fit['Pairwise divergence loss'],
+                        'LOCO MSE': m.fit_loco()['MSE'][0],
+                        'Z0': fit['Parameters']['Z0'], 'True Z0': true_z0, 'Zeq': fit['Parameters']['Zeq']})
+        except Exception as e:
+            print(e)
+            res.append({'Trait': t, 'Sequence': seq_name, 'Model': 'NeutralModel (Z0=Zeq, fixed u=1.34)',
                         'Log-likelihood': None, 'Corrected AIC': None,
                         'Pairwise Divergence Error': None, 'LOCO MSE': None,
                         'Z0': None, 'True Z0': None, 'Zeq': None})

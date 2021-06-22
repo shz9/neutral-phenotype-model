@@ -184,11 +184,13 @@ class GaussianProcessModel(object):
 
 class NeutralModel(GaussianProcessModel):
 
-    def __init__(self, data, tree, fixed_params=None):
+    def __init__(self, data, tree, equilibrium_z0=False, fixed_params=None):
 
         super().__init__(data, tree)
 
         self.fixed_params = fixed_params or {}
+
+        self.eq_z0 = equilibrium_z0
 
         # The 5 parameters of the model:
         self.z0 = None  # The ancestral phenotype
@@ -198,6 +200,11 @@ class NeutralModel(GaussianProcessModel):
         self.u = None  # The scaling factor u, or the rate in our context
 
         self.k = 5 - len(self.fixed_params)  # Number of parameters under the model
+        if self.eq_z0:
+            if 'Psi' not in self.fixed_params:
+                self.k -= 1
+            if 'Zeq' not in self.fixed_params:
+                self.k -= 1
 
     def mean(self, test=False):
         if test:
@@ -215,6 +222,7 @@ class NeutralModel(GaussianProcessModel):
 
         sd = self.sd[np.ix_(row_mask, self.training_mask)]
         pd = self.pd[np.ix_(row_mask, self.training_mask)]
+
         return np.exp(-self.u * pd) * (1. - np.exp(-self.u * sd)) * (
                 np.exp(-self.u * sd) * (self.psi - self.sigma_eq) + self.sigma_eq
         )
@@ -224,47 +232,67 @@ class NeutralModel(GaussianProcessModel):
 
         data_mean = self.data[np.array(self.tips)[self.training_mask]].mean()
 
-        init_params = np.array([
-            data_mean,
-            data_mean,
-            np.random.uniform(),
-            np.random.uniform(),
-            np.random.uniform()
-        ])
+        if self.eq_z0:
+            init_params = np.array([
+                data_mean,
+                np.random.uniform(),
+                np.random.uniform()
+            ])
 
-        bounds = [
-            (None, None),
-            (None, None),
-            (1e-12, 1e12),
-            (1e-12, 1e12),
-            (1., 2.)
-        ]
+            bounds = [
+                (None, None),
+                (1e-12, 1e12),
+                (1., 2.)
+            ]
+
+        else:
+
+            init_params = np.array([
+                data_mean,
+                data_mean,
+                np.random.uniform(),
+                np.random.uniform(),
+                np.random.uniform()
+            ])
+
+            bounds = [
+                (None, None),
+                (None, None),
+                (1e-12, 1e12),
+                (1e-12, 1e12),
+                (1., 2.)
+            ]
 
         def objective(params):
-            try:
-                self.z0 = self.fixed_params['Z0']
-            except KeyError:
-                self.z0 = params[0]
 
-            try:
-                self.z_eq = self.fixed_params['Zeq']
-            except KeyError:
-                self.z_eq = params[1]
+            if self.eq_z0:
+                self.z0, self.sigma_eq, self.u = params
+                self.z_eq = self.z0
+                self.psi = 2.*self.sigma_eq
+            else:
+                self.z0, self.z_eq, self.psi, self.sigma_eq, self.u = params
 
-            try:
-                self.psi = self.fixed_params['Psi']
-            except KeyError:
-                self.psi = params[2]
-
-            try:
-                self.sigma_eq = self.fixed_params['sigma_eq']
-            except KeyError:
-                self.sigma_eq = params[3]
-
-            try:
-                self.u = self.fixed_params['u']
-            except KeyError:
-                self.u = params[4]
+            for k, v in self.fixed_params.items():
+                if k == 'Z0':
+                    if self.eq_z0:
+                        self.z_eq = self.z0 = v
+                    else:
+                        self.z0 = v
+                elif k == 'Zeq':
+                    if self.eq_z0:
+                        self.z_eq = self.z0 = v
+                    else:
+                        self.z_eq = v
+                elif k == 'Psi':
+                    self.psi = v
+                elif k == 'sigma_eq':
+                    if self.eq_z0:
+                        self.sigma_eq = v
+                        self.psi = 2.*v
+                    else:
+                        self.sigma_eq = v
+                elif k == 'u':
+                    self.u = v
 
             if self.loss == 'nll':
                 return self.nll()
@@ -277,8 +305,15 @@ class NeutralModel(GaussianProcessModel):
                                    bounds=bounds,
                                    options={'maxiter': 100})
 
-        inf_params = dict(zip(['Z0', 'Zeq', 'Psi', 'sigma_eq', 'u'],
-                              optim_res.x))
+        if self.eq_z0:
+            inf_params = dict(zip(['Z0', 'sigma_eq', 'u'],
+                                  optim_res.x))
+            inf_params['Zeq'] = inf_params['Z0']
+            inf_params['Psi'] = 2.*inf_params['sigma_eq']
+        else:
+            inf_params = dict(zip(['Z0', 'Zeq', 'Psi', 'sigma_eq', 'u'],
+                                  optim_res.x))
+
         inf_params.update(self.fixed_params)
 
         if self.loss == 'nll':
