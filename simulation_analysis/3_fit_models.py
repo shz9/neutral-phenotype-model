@@ -46,10 +46,10 @@ def process_trait_file(trait_f):
                         'InitialSequence': init_seq,
                         'Model': 'NeutralModel',
                         'AICc': res['AIC.c'],
-                        'Z0 SE': (inf_z0 - true_z0) ** 2,
-                        'Z0 RPD': 2. * (inf_z0 - true_z0) / (abs(inf_z0) + abs(true_z0)),
-                        'Zeq SE': (inf_zeq - true_zeq) ** 2,
-                        'Zeq RPD': 2. * (inf_zeq - true_zeq) / (abs(inf_zeq) + abs(true_zeq))
+                        'True Z0': true_z0,
+                        'Inferred Z0': inf_z0,
+                        'True Zeq': true_zeq,
+                        'Inferred Zeq': inf_zeq,
                         })
 
         nm = NeutralModel(data[trait], tree, fixed_params={'u': u})
@@ -66,10 +66,10 @@ def process_trait_file(trait_f):
                         'InitialSequence': init_seq,
                         'Model': f'NeutralModel (fixed u={u:.2f})',
                         'AICc': res['AIC.c'],
-                        'Z0 SE': (inf_z0 - true_z0) ** 2,
-                        'Z0 RPD': 2. * (inf_z0 - true_z0) / (abs(inf_z0) + abs(true_z0)),
-                        'Zeq SE': (inf_zeq - true_zeq) ** 2,
-                        'Zeq RPD': 2. * (inf_zeq - true_zeq) / (abs(inf_zeq) + abs(true_zeq))
+                        'True Z0': true_z0,
+                        'Inferred Z0': inf_z0,
+                        'True Zeq': true_zeq,
+                        'Inferred Zeq': inf_zeq,
                         })
 
         nm = NeutralModel(data[trait], tree, fixed_params={'u': u, 'Zeq': true_zeq})
@@ -86,10 +86,10 @@ def process_trait_file(trait_f):
                         'InitialSequence': init_seq,
                         'Model': f'NeutralModel (fixed u={u:.2f}, Zeq={true_zeq:.2f})',
                         'AICc': res['AIC.c'],
-                        'Z0 SE': (inf_z0 - true_z0) ** 2,
-                        'Z0 RPD': 2. * (inf_z0 - true_z0) / (abs(inf_z0) + abs(true_z0)),
-                        'Zeq SE': (inf_zeq - true_zeq) ** 2,
-                        'Zeq RPD': 2. * (inf_zeq - true_zeq) / (abs(inf_zeq) + abs(true_zeq))
+                        'True Z0': true_z0,
+                        'Inferred Z0': inf_z0,
+                        'True Zeq': true_zeq,
+                        'Inferred Zeq': inf_zeq,
                         })
 
         ou = OU(data[trait], tree)
@@ -106,10 +106,10 @@ def process_trait_file(trait_f):
                         'InitialSequence': init_seq,
                         'Model': f'OU',
                         'AICc': res['AIC.c'],
-                        'Z0 SE': (inf_z0 - true_z0) ** 2,
-                        'Z0 RPD': 2. * (inf_z0 - true_z0) / (abs(inf_z0) + abs(true_z0)),
-                        'Zeq SE': (inf_zeq - true_zeq) ** 2,
-                        'Zeq RPD': 2. * (inf_zeq - true_zeq) / (abs(inf_zeq) + abs(true_zeq))
+                        'True Z0': true_z0,
+                        'Inferred Z0': inf_z0,
+                        'True Zeq': true_zeq,
+                        'Inferred Zeq': inf_zeq,
                         })
 
         ou = OU(data[trait], tree, equilibrium_z0=True)
@@ -126,10 +126,10 @@ def process_trait_file(trait_f):
                         'InitialSequence': init_seq,
                         'Model': f'OU (Z0=Zeq)',
                         'AICc': res['AIC.c'],
-                        'Z0 SE': (inf_z0 - true_z0) ** 2,
-                        'Z0 RPD': 2. * (inf_z0 - true_z0) / (abs(inf_z0) + abs(true_z0)),
-                        'Zeq SE': (inf_zeq - true_zeq) ** 2,
-                        'Zeq RPD': 2. * (inf_zeq - true_zeq) / (abs(inf_zeq) + abs(true_zeq))
+                        'True Z0': true_z0,
+                        'Inferred Z0': inf_z0,
+                        'True Zeq': true_zeq,
+                        'Inferred Zeq': inf_zeq,
                         })
 
         bm = BM(data[trait], tree)
@@ -146,10 +146,10 @@ def process_trait_file(trait_f):
                         'InitialSequence': init_seq,
                         'Model': f'BM',
                         'AICc': res['AIC.c'],
-                        'Z0 SE': (inf_z0 - true_z0) ** 2,
-                        'Z0 RPD': 2. * (inf_z0 - true_z0) / (abs(inf_z0) + abs(true_z0)),
-                        'Zeq SE': (inf_zeq - true_zeq) ** 2,
-                        'Zeq RPD': 2. * (inf_zeq - true_zeq) / (abs(inf_zeq) + abs(true_zeq))
+                        'True Z0': true_z0,
+                        'Inferred Z0': inf_z0,
+                        'True Zeq': true_zeq,
+                        'Inferred Zeq': inf_zeq,
                         })
 
     return pd.DataFrame(results)
@@ -167,4 +167,4 @@ if __name__ == '__main__':
     pool.join()
 
     res_df = pd.concat(dfs)
-    res_df.to_csv("data/inference_results_20.csv", index=False)
+    res_df.to_csv("data/inference_results.csv", index=False)
