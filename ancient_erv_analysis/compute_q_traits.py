@@ -93,19 +93,19 @@ def calculate_longest_orf_alan(seq):
                 trip = ''.join(bases[i:i + 3])
 
                 aa = codons[trip]
-                if (aa == '*'):
+                if aa == '*':
                     cDNA += trip
                     # if (len(thisp)>10): print (i-len(cDNA),i,cDNA)
-                    if (len(thisp) > len(maxpep)): maxpep = "".join(thisp)
+                    if len(thisp) > len(maxpep): maxpep = "".join(thisp)
                     thisp = []
                     cDNA = ""
-                elif (len(thisp) > 0):
+                elif len(thisp) > 0:
                     thisp.append(aa)
                     cDNA += trip
-                elif (aa == 'M'):
+                elif aa == 'M':
                     thisp.append(aa)
                     cDNA += trip
-            if (len(thisp) > len(maxpep)): maxpep = "".join(thisp)  ## in case no stop codon
+            if len(thisp) > len(maxpep): maxpep = "".join(thisp)  ## in case no stop codon
 
     return len(maxpep)
 

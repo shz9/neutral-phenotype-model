@@ -1,9 +1,9 @@
 
 Estimated rates for sites from BASEML.
-(loxodonta_africana: 0.095892, ((((((cavia_porcellus: 0.208858, chinchilla_lanigera: 0.135244): 0.001254, octodon_degus: 0.169875): 0.046543, (heterocephalus_glaber_male: 0.101112, fukomys_damarensis: 0.086347): 0.036850): 0.078602, jaculus_jaculus: 0.319937): 0.017471, ((propithecus_coquereli: 0.081356, otolemur_garnettii: 0.142100): 0.057876, (carlito_syrichta: 0.212550, (((saimiri_boliviensis_boliviensis: 0.022961, cebus_capucinus: 0.013045): 0.007995, aotus_nancymaae: 0.008932): 0.039291, (((((pan_paniscus: 0.003214, pan_troglodytes: 0.003191): 0.006410, homo_sapiens: 0.012821): 0.000004, gorilla_gorilla: 0.000004): 0.016138, nomascus_leucogenys: 0.016136): 0.003266, (((rhinopithecus_roxellana: 0.003198, rhinopithecus_bieti: 0.000004): 0.013543, colobus_angolensis_palliatus: 0.015560): 0.000004, (chlorocebus_sabaeus: 0.012920, ((mandrillus_leucophaeus: 0.000004, cercocebus_atys: 0.006400): 0.000004, ((macaca_mulatta: 0.000004, macaca_fascicularis: 0.000004): 0.000004, macaca_nemestrina: 0.000004): 0.012848): 0.000004): 0.010243): 0.022288): 0.014705): 0.069087): 0.000004): 0.000004): 0.031127, (((sus_scrofa: 0.214375, equus_caballus: 0.098771): 0.006806, (((panthera_pardus: 0.000004, panthera_tigris_altaica: 0.000004): 0.014066, felis_catus: 0.013666): 0.050705, (canis_familiaris: 0.059775, (mustela_putorius_furo: 0.056925, ailuropoda_melanoleuca: 0.057490): 0.000004): 0.025219): 0.059164): 0.000004, (pteropus_vampyrus: 0.165976, myotis_lucifugus: 0.183682): 0.016936): 0.061170): 0.081947);
+(loxodonta_africana: 0.096519, ((((((cavia_porcellus: 0.208847, chinchilla_lanigera: 0.135215): 0.001256, octodon_degus: 0.169888): 0.046540, (heterocephalus_glaber_male: 0.101102, fukomys_damarensis: 0.086347): 0.036849): 0.078599, jaculus_jaculus: 0.319924): 0.017470, ((propithecus_coquereli: 0.081354, otolemur_garnettii: 0.142098): 0.057877, (carlito_syrichta: 0.212545, (((saimiri_boliviensis_boliviensis: 0.022957, cebus_capucinus: 0.013041): 0.007997, aotus_nancymaae: 0.008931): 0.039290, (((((pan_paniscus: 0.003200, pan_troglodytes: 0.003191): 0.006408, homo_sapiens: 0.012823): 0.000004, gorilla_gorilla: 0.000004): 0.016139, nomascus_leucogenys: 0.016137): 0.003265, (((rhinopithecus_roxellana: 0.003196, rhinopithecus_bieti: 0.000004): 0.013543, colobus_angolensis_palliatus: 0.015561): 0.000004, (chlorocebus_sabaeus: 0.012921, ((mandrillus_leucophaeus: 0.000004, cercocebus_atys: 0.006400): 0.000004, ((macaca_mulatta: 0.000004, macaca_fascicularis: 0.000004): 0.000004, macaca_nemestrina: 0.000004): 0.012849): 0.000004): 0.010241): 0.022291): 0.014705): 0.069087): 0.000004): 0.000004): 0.031128, (((sus_scrofa: 0.214375, equus_caballus: 0.098772): 0.006807, (((panthera_pardus: 0.000004, panthera_tigris_altaica: 0.000004): 0.014066, felis_catus: 0.013668): 0.050703, (canis_familiaris: 0.059774, (mustela_putorius_furo: 0.056925, ailuropoda_melanoleuca: 0.057488): 0.000004): 0.025218): 0.059164): 0.000004, (pteropus_vampyrus: 0.165998, myotis_lucifugus: 0.183669): 0.016934): 0.061169): 0.081319);
 
 Frequencies and rates for categories (K=5)
-rate:  0.43586  0.70421  0.92619  1.19223  1.74150
+rate:  0.43587  0.70422  0.92619  1.19223  1.74149
 freq:  0.20000  0.20000  0.20000  0.20000  0.20000
 
    Site  Freq   Data    Rate (posterior mean & category)
@@ -24,7 +24,7 @@ freq:  0.20000  0.20000  0.20000  0.20000  0.20000
      14     1  GGGGGGGGGGAGGGGGG-AG---GG-AAAAAAAAAAG    1.179     5
      15     1  ------------------------A------------    1.000     2
      16     1  ------------------------G------------    1.000     2
-     17     1  ------------------------C------------    1.000     1
+     17     1  ------------------------C------------    1.000     5
      18     1  TTTTTTTTTTTTTTTTC-TTTTTTTGTTTTTTTCTTT    1.025     3
      19     1  CCCCCCCCCCCCCCCCC-CCCCCTTCCCCCCCCCCCT    0.901     2
      20     1  TTTTTTTTTTTTTTTTT-TTTTTTTTTTTTTTTTTTC    0.717     1
@@ -49,7 +49,7 @@ freq:  0.20000  0.20000  0.20000  0.20000  0.20000
      39     1  CCCCCCCTTTCCCCCCC-CCCTTTTCCCCCCCCTCCC    1.187     5
      40     1  AAAAAAAAAAAAAAAAA-AAAATGAAAAAAAAAAAAA    0.964     3
      41     1  GGGGGGGGGGGGGGGGG-GGCGAGGGGGGGGGGGGGG    0.850     2
-     42     1  -----------------------------C-------    1.000     1
+     42     1  -----------------------------C-------    1.000     5
      43     5  CCCCCCCCCCCCCCCCC-CCCCCCCCCCCCCCCCCCC    0.625     1
      44     5  CCCCCCCCCCCCCCCCC-CCCCCCCCCCCCCCCCCCC    0.625     1
      45     1  TTTTTTTTTTTTTTTTA-TTTTTTTTTTTTTTTTTCT    0.852     2
@@ -105,7 +105,7 @@ freq:  0.20000  0.20000  0.20000  0.20000  0.20000
      95     1  CCCCCCCCCCCCCCCCC-TTATCCCCCCCCCCCCTCC    1.225     5
      96     2  AAAAAAAAAAAAAAAAA-AAAAAAAAAAAAAAAAAAA    0.668     1
      97     1  TTTTTTTTTTTTTTCCC-TTTTCTT-TTTTTTATTTT    1.058     4
-     98     1  AAAACCCCCCCCCCAAA-CCCCCCC-CCCCCCCCCCC    0.918     2
+     98     1  AAAACCCCCCCCCCAAA-CCCCCCC-CCCCCCCCCCC    0.919     2
      99     1  CCCCCCCCCCCCCCCCC-TTCCCCCGCCCCCCCCCCC    0.911     2
     100     1  AAAAAAAAAAAGAAAAA-AAAAGAAAAAAAAAACAAA    1.124     4
     101     1  AAAAAAAAAAAAAAAAA-AAAAAAATAATAAAAAAAA    0.971     3
@@ -137,7 +137,7 @@ freq:  0.20000  0.20000  0.20000  0.20000  0.20000
     127     1  AAAAAAAAAAAAAAAAA-AAAAAGAAAAAAAAAGGGA    1.175     5
     128     1  TTTTTTTTTTTTTTTTT-TTTTTTTTTTTTTTTTTCT    0.718     1
     129     5  CCCCCCCCCCCCCCCCC-CCCCCCCCCCCCCCCCCCC    0.625     1
-    130     1  CCCCCCCCCCCCCCCCC-CCCTCCCTCCCCCCCCCCC    0.868     2
+    130     1  CCCCCCCCCCCCCCCCC-CCCTCCCTCCCCCCCCCCC    0.869     2
     131     1  AAAAGAAAAAAAAAAAA-AAAGAAAGAAAAGGAAAAA    1.262     5
     132     1  GGGGGGGGGGGGGGCCC-GGGGGGGGAAAAAAGGAGG    0.997     3
     133     1  TTTTTTTTTTTTTTTTT-TTAATTTTTTTTTTTTTTT    0.851     2
@@ -187,7 +187,7 @@ freq:  0.20000  0.20000  0.20000  0.20000  0.20000
     177     1  TTTTTTTTTTTTTTTTT-TTATCTTTTTTTCCTTCTT    1.183     4
     178     1  CCCCCCCCCCCCCCCCC-CCTCCCCCCCCCCCCCCCC    0.733     1
     179     1  TTTTTTTTTTTTTTTTT-CCCCCCCCCCCCCCCCTCC    0.871     2
-    180     1  AAAAAAAAAAAAAAAAA-AAAAAAAGAAAAAAAACAA    0.953     3
+    180     1  AAAAAAAAAAAAAAAAA-AAAAAAAGAAAAAAAACAA    0.954     3
     181     1  GGGGGGGGGGGGGGGGG-GGGGGGGGAGGGGGGGTGG    0.844     2
     182     1  AAAAAAAAAAAAAAAAA-AAAAAAACAAAAAAAAGAA    0.965     3
     183     2  ----------------------------GG--GG---    0.897     1
@@ -262,7 +262,7 @@ freq:  0.20000  0.20000  0.20000  0.20000  0.20000
     252     1  TTTTTTTTTTTTTTTTTTATTTTTTCCCCCCCCTCCC    1.178     4
     253     1  CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC    0.613     1
     254     1  TTTTTTTTTTTTTTTTTTTCAAATAATTTTTTTTTTT    1.090     4
-    255     1  --------------------------------C----    1.000     4
+    255     1  --------------------------------C----    1.000     5
     256     1  GGGGGGGGGGGGGGGGGGGGGGG-GGGGGGGGAGGGG    0.692     1
     257     2  CCCCCCCCCCCCCCCCCCCCCCC-CCCCCCCCCCCCC    0.618     1
     258     1  TTTTTTTTTTTTTTTTTTTTTTT-TTTTTTTTTTTTT    0.607     1
@@ -283,8 +283,8 @@ freq:  0.20000  0.20000  0.20000  0.20000  0.20000
     273     1  AAAAAGGGGGGAGGAAAA-CAAAAAAAAAAAAATAAA    1.278     5
     274     1  CCCCCCCCCCCCCCCCCC-CCCCCCTTGTCTTTGTTC    1.341     5
     275     1  AAAAAAAAAAAAAAAAAA-AAAAAAAAAAAAA-GAAA    0.795     1
-    276     2  ---------------------------------G---    1.000     3
-    277     2  ---------------------------------G---    1.000     3
+    276     2  ---------------------------------G---    1.000     2
+    277     2  ---------------------------------G---    1.000     2
     278     1  ---------------------------------A---    1.000     2
     279     1  ---------------------------------T---    1.000     2
     280     1  GGGGGGGGGGGGGGGGGGG-GGGGGGGGGGGGGGA-G    0.708     1
@@ -333,7 +333,7 @@ freq:  0.20000  0.20000  0.20000  0.20000  0.20000
     323     1  AAAAAAAAAAAAAAAAAAAAA-AAAAA-AAAAAAAAA    0.667     1
     324     1  AAAAAAAAAAAAAAAAAAAAA-AACAA-AAAAAAGGA    1.016     3
     325     1  AAAAAAAAAAAAAAAAAAAAA-AAAGA---AA--AAA    0.826     1
-    326     1  TTTTTTTTTTTTTTTTTTCTT-TTTCT---TT--TTT    0.901     2
+    326     1  TTTTTTTTTTTTTTTTTTCTT-TTTCT---TT--TTT    0.902     2
     327     1  CCCCCCCCCCCCCCCCCCCCG-GACCT-------CCC    1.174     5
     328     1  TTTTTTTTTTTTTTTTTTTTT-TTCTC-------TTT    0.920     2
     329     1  CCCCCCCCCCCCCCCCCGCCC-CCCCC-------CCC    0.796     1
@@ -350,7 +350,7 @@ freq:  0.20000  0.20000  0.20000  0.20000  0.20000
     340     1  TTTTTTTTTTTTTTTTTTTTTTTTTT--------GG-    0.799     1
     341     1  CCCCCCCCCCCCCCCCCCCCCCCCCC--------CT-    0.812     1
 
-lnL =  -4036.007618
+lnL =  -4036.007607
 
 mean(r^)=   0.9983  var(r^)=   0.0620
 Accuracy of rate prediction: corr(r^,r) =   0.5197

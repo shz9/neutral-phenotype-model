@@ -16,7 +16,7 @@ input_dir = "./data/0_chopped_alignments/"
 tree_input_dir = "./metadata/segment_trees/species/"
 
 output_dir = "./data/1_paml_asr/"
-tree_output_dir = "./metadata/segment_trees/paml_inferred/"
+tree_output_dir = "metadata/segment_trees/paml_inferred/"
 
 
 def run_baseml(alignment_dir):
@@ -44,12 +44,12 @@ def run_baseml(alignment_dir):
                         working_dir=outdir)
 
     bml.read_ctl_file(sample_ctrl)
-    bml.set_options(model=4)
+    bml.set_options(model=2)
     bml.out_file = os.path.join(outdir, "result.txt")
 
     res = bml.run()
 
-    with open(os.path.join(tree_output_dir, algn_name + ".nwk"), "wb") as tf:
+    with open(os.path.join(tree_output_dir, algn_name + ".nwk"), "w") as tf:
         tf.write(res['tree'].replace(" ", ""))
 
     diff_dict = {
@@ -58,7 +58,7 @@ def run_baseml(alignment_dir):
         "Ratio": res['tree length'] / mash_tree_dist
     }
 
-    with open(os.path.join(outdir, "distance_stats.json"), "wb") as dfs:
+    with open(os.path.join(outdir, "distance_stats.json"), "w") as dfs:
         json.dump(diff_dict, dfs)
 
 

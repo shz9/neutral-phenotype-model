@@ -14,7 +14,7 @@ from compute_q_traits import (calculate_gc_content, calculate_longest_orf,
                               calculate_percent_A, calculate_longest_orf_alan)
 
 paml_trees = True
-simulated_sequences = True
+simulated_sequences = False
 
 trait_func = {
     "gc_content": calculate_gc_content,
@@ -43,8 +43,9 @@ for f in glob.glob(osp.join(traits, "*", "traits.csv")):
 
     seq_name = osp.basename(osp.dirname(f))
 
-    with open(osp.join(sim_seq_dir, seq_name, "alignment.root"), "r") as algn_f:
-        root_seq = str(algn_f.read()).strip()
+    if simulated_sequences:
+        with open(osp.join(sim_seq_dir, seq_name, "alignment.root"), "r") as algn_f:
+            root_seq = str(algn_f.read()).strip()
 
     data = pd.read_csv(f, index_col=0).T
     tree = Phylo.read(osp.join(tree_dir, seq_name + ".nwk"), "newick")

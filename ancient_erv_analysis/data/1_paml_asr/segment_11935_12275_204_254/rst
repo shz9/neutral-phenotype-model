@@ -1,0 +1,939 @@
+Supplemental results for BASEML
+
+seqf:  ../../0_chopped_alignments/segment_11935_12275_204_254/alignment.fa
+treef: ../../../metadata/segment_trees/species/segment_11935_12275_204_254.nwk
+
+
+TREE #  1
+
+Ancestral reconstruction by BASEML.
+
+(loxodonta_africana: 0.169023, ((((((cavia_porcellus: 0.273842, chinchilla_lanigera: 0.120620): 0.000004, octodon_degus: 0.225384): 0.031105, (heterocephalus_glaber_male: 0.000004, fukomys_damarensis: 0.082296): 0.015737): 0.000004, jaculus_jaculus: 0.520955): 0.070966, ((propithecus_coquereli: 0.125949, otolemur_garnettii: 0.141319): 0.091797, (carlito_syrichta: 0.144922, (((saimiri_boliviensis_boliviensis: 0.051778, cebus_capucinus: 0.000004): 0.052623, aotus_nancymaae: 0.000004): 0.026215, (((((pan_paniscus: 0.000004, pan_troglodytes: 0.000004): 0.000004, homo_sapiens: 0.000004): 0.000004, gorilla_gorilla: 0.000004): 0.000004, nomascus_leucogenys: 0.000004): 0.000004, (((rhinopithecus_roxellana: 0.000004, rhinopithecus_bieti: 0.000004): 0.025538, colobus_angolensis_palliatus: 0.053065): 0.000004, (chlorocebus_sabaeus: 0.000004, ((mandrillus_leucophaeus: 0.000004, cercocebus_atys: 0.000004): 0.000004, ((macaca_mulatta: 0.000004, macaca_fascicularis: 0.000004): 0.000004, macaca_nemestrina: 0.000004): 0.000004): 0.000004): 0.000004): 0.025087): 0.051518): 0.058365): 0.000004): 0.054546): 0.082409, (((sus_scrofa: 0.277155, equus_caballus: 0.084875): 0.006201, (((panthera_pardus: 0.000004, panthera_tigris_altaica: 0.000004): 0.032132, felis_catus: 0.014400): 0.120634, (canis_familiaris: 0.109644, (mustela_putorius_furo: 0.052354, ailuropoda_melanoleuca: 0.025276): 0.000004): 0.000004): 0.000004): 0.000004, (pteropus_vampyrus: 0.237677, myotis_lucifugus: 0.173638): 0.000004): 0.000004): 0.003384);
+
+(37, ((((((21, 22), 23), (25, 24)), 26), ((20, 19), (18, (((17, 16), 15), (((((2, 3), 1), 4), 5), (((14, 13), 12), (11, ((7, 6), ((9, 8), 10))))))))), (((34, 33), (((31, 32), 30), (29, (28, 27)))), (36, 35))));
+
+  38..37   38..39   39..40   40..41   41..42   42..43   43..44   44..21   44..22   43..23   42..45   45..25   45..24   41..26   40..46   46..47   47..20   47..19   46..48   48..18   48..49   49..50   50..51   51..17   51..16   50..15   49..52   52..53   53..54   54..55   55..56   56..2    56..3    55..1    54..4    53..5    52..57   57..58   58..59   59..14   59..13   58..12   57..60   60..11   60..61   61..62   62..7    62..6    61..63   63..64   64..9    64..8    63..10   39..65   65..66   66..67   67..34   67..33   66..68   68..69   69..70   70..31   70..32   69..30   68..71   71..29   71..72   72..28   72..27   65..73   73..36   73..35 
+
+tree with node labels for Rod Page's TreeView
+(37_loxodonta_africana, ((((((21_cavia_porcellus, 22_chinchilla_lanigera) 44 , 23_octodon_degus) 43 , (25_heterocephalus_glaber_male, 24_fukomys_damarensis) 45 ) 42 , 26_jaculus_jaculus) 41 , ((20_propithecus_coquereli, 19_otolemur_garnettii) 47 , (18_carlito_syrichta, (((17_saimiri_boliviensis_boliviensis, 16_cebus_capucinus) 51 , 15_aotus_nancymaae) 50 , (((((2_pan_paniscus, 3_pan_troglodytes) 56 , 1_homo_sapiens) 55 , 4_gorilla_gorilla) 54 , 5_nomascus_leucogenys) 53 , (((14_rhinopithecus_roxellana, 13_rhinopithecus_bieti) 59 , 12_colobus_angolensis_palliatus) 58 , (11_chlorocebus_sabaeus, ((7_mandrillus_leucophaeus, 6_cercocebus_atys) 62 , ((9_macaca_mulatta, 8_macaca_fascicularis) 64 , 10_macaca_nemestrina) 63 ) 61 ) 60 ) 57 ) 52 ) 49 ) 48 ) 46 ) 40 , (((34_sus_scrofa, 33_equus_caballus) 67 , (((31_panthera_pardus, 32_panthera_tigris_altaica) 70 , 30_felis_catus) 69 , (29_canis_familiaris, (28_mustela_putorius_furo, 27_ailuropoda_melanoleuca) 72 ) 71 ) 68 ) 66 , (36_pteropus_vampyrus, 35_myotis_lucifugus) 73 ) 65 ) 39 ) 38 ;
+
+Nodes 38 to 73 are ancestral
+Unreliable at sites with alignment gaps
+
+(1) Marginal reconstruction of ancestral sequences
+(eqn. 4 in Yang et al. 1995 Genetics 141:1641-1650).
+
+Prob of best state at each node, listed by site
+
+   site   Freq   Data: 
+
+   1      1   ----------------------------GG--GA---: G(0.995) G(0.999) G(0.909) G(0.840) G(0.840) G(0.812) G(0.812) G(0.826) G(0.855) G(0.775) G(0.855) G(0.803) G(0.781) G(0.740) G(0.761) G(0.761) G(0.761) G(0.761) G(0.761) G(0.741) G(0.741) G(0.722) G(0.741) G(0.741) G(0.741) G(0.741) G(0.741) G(0.999) G(0.999) G(0.999) G(0.999) G(0.999) G(0.962) G(0.999) G(0.999) G(0.999) 
+   2      1   ----------------------------CC--TC---: C(0.937) C(0.941) C(0.851) C(0.788) C(0.788) C(0.764) C(0.764) C(0.776) C(0.802) C(0.733) C(0.802) C(0.756) C(0.738) C(0.705) C(0.721) C(0.721) C(0.721) C(0.721) C(0.721) C(0.706) C(0.706) C(0.691) C(0.706) C(0.706) C(0.706) C(0.706) C(0.706) C(0.941) C(0.941) C(0.922) C(0.941) C(0.991) C(0.948) C(0.941) C(0.941) C(0.941) 
+   3      2   ----------------------------CC--CC---: C(0.996) C(0.999) C(0.926) C(0.873) C(0.873) C(0.852) C(0.852) C(0.862) C(0.885) C(0.825) C(0.885) C(0.845) C(0.829) C(0.798) C(0.814) C(0.814) C(0.814) C(0.814) C(0.814) C(0.800) C(0.800) C(0.786) C(0.800) C(0.800) C(0.800) C(0.800) C(0.800) C(0.999) C(0.999) C(0.999) C(0.999) C(0.998) C(0.968) C(0.999) C(0.999) C(0.999) 
+   4      2   ----------------------------TT--TT---: T(0.996) T(0.999) T(0.933) T(0.885) T(0.885) T(0.866) T(0.866) T(0.876) T(0.896) T(0.841) T(0.896) T(0.860) T(0.845) T(0.818) T(0.832) T(0.832) T(0.832) T(0.832) T(0.832) T(0.819) T(0.819) T(0.807) T(0.819) T(0.819) T(0.819) T(0.819) T(0.819) T(0.999) T(0.999) T(0.999) T(0.999) T(0.998) T(0.971) T(0.999) T(0.999) T(0.999) 
+   5      2   ----------------------------CC--CC---: C(0.996) C(0.999) C(0.926) C(0.873) C(0.873) C(0.852) C(0.852) C(0.862) C(0.885) C(0.825) C(0.885) C(0.845) C(0.829) C(0.798) C(0.814) C(0.814) C(0.814) C(0.814) C(0.814) C(0.800) C(0.800) C(0.786) C(0.800) C(0.800) C(0.800) C(0.800) C(0.800) C(0.999) C(0.999) C(0.999) C(0.999) C(0.998) C(0.968) C(0.999) C(0.999) C(0.999) 
+   6      2   ----------------------------TT--TT---: T(0.996) T(0.999) T(0.933) T(0.885) T(0.885) T(0.866) T(0.866) T(0.876) T(0.896) T(0.841) T(0.896) T(0.860) T(0.845) T(0.818) T(0.832) T(0.832) T(0.832) T(0.832) T(0.832) T(0.819) T(0.819) T(0.807) T(0.819) T(0.819) T(0.819) T(0.819) T(0.819) T(0.999) T(0.999) T(0.999) T(0.999) T(0.998) T(0.971) T(0.999) T(0.999) T(0.999) 
+   7      1   ----------------------------GG--GG---: G(0.997) G(1.000) G(0.936) G(0.886) G(0.886) G(0.865) G(0.865) G(0.875) G(0.897) G(0.838) G(0.897) G(0.859) G(0.842) G(0.811) G(0.827) G(0.827) G(0.827) G(0.827) G(0.827) G(0.812) G(0.812) G(0.797) G(0.812) G(0.812) G(0.812) G(0.812) G(0.812) G(1.000) G(1.000) G(1.000) G(1.000) G(1.000) G(0.974) G(1.000) G(1.000) G(1.000) 
+   8      1   ----------------------------TT--TCC--: T(0.953) T(0.958) T(0.860) T(0.793) T(0.793) T(0.768) T(0.768) T(0.780) T(0.807) T(0.736) T(0.807) T(0.760) T(0.741) T(0.707) T(0.724) T(0.724) T(0.724) T(0.724) T(0.724) T(0.708) T(0.708) T(0.693) T(0.708) T(0.708) T(0.708) T(0.708) T(0.708) T(0.958) T(0.958) T(0.957) T(0.958) T(0.992) T(0.947) T(0.958) T(0.958) T(0.958) 
+   9      1   ----------------------------TT--TGT--: T(0.995) T(0.999) T(0.908) T(0.845) T(0.845) T(0.821) T(0.821) T(0.832) T(0.858) T(0.789) T(0.858) T(0.813) T(0.794) T(0.761) T(0.778) T(0.778) T(0.778) T(0.778) T(0.778) T(0.762) T(0.762) T(0.747) T(0.762) T(0.762) T(0.762) T(0.762) T(0.762) T(0.999) T(0.999) T(0.998) T(0.999) T(0.997) T(0.959) T(0.999) T(0.999) T(0.999) 
+  10      1   AAAAAAAAAAAAAAAAAAAAGGGGGAGGAGAAGGGAA: G(0.979) G(1.000) G(0.958) G(1.000) G(1.000) G(1.000) G(1.000) G(1.000) A(0.982) A(0.996) A(0.982) A(0.999) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) G(1.000) G(1.000) G(1.000) G(1.000) G(0.978) A(1.000) G(1.000) G(1.000) G(1.000) 
+  11      1   TTTTTTTTTTTTTTTTTTTTTTCTTTTTTTTTTTTTT: T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(0.998) T(0.998) T(1.000) T(1.000) T(0.999) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) 
+  12      1   AAAAAAAAAAAAAAAAACAAAAAAAGAAAGGGAAAAG: A(0.981) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(0.999) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) G(0.999) G(1.000) A(1.000) A(1.000) A(1.000) 
+  13      1   AAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAA: A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) 
+  14      1   CCCCCCCCCCCCCCCCCTCCGCCCCTCCCCCCCTCCC: C(0.999) C(1.000) C(0.999) C(1.000) C(1.000) C(0.998) C(0.998) C(1.000) C(0.996) C(0.996) C(0.996) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(0.998) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) 
+  15      1   TTTTTTTTTTTTTTTTTACCCTTTTTTTTCCCTTTTT: T(0.999) T(1.000) T(0.993) T(0.999) T(0.999) T(0.994) T(0.994) T(1.000) T(0.958) C(0.829) T(0.958) T(0.998) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) C(0.996) C(1.000) T(1.000) T(1.000) T(1.000) 
+  16      1   AAAAAAAAAAAGAAAAAAAAAAGAACAAAAAAATAAA: A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(0.996) A(0.996) A(1.000) A(1.000) A(0.999) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(0.999) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) 
+  17      1   CCCCCCCCCCCCCCCCCTCTTCCCCTCCCCCCCCTCC: C(0.999) C(1.000) C(0.995) C(0.999) C(0.999) C(0.994) C(0.994) C(1.000) C(0.970) C(0.868) C(0.970) C(0.999) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) 
+  18      1   AAAAAAAAAAAAAAAAAAAAGAACAGAAAAAAACGAA: A(1.000) A(1.000) A(1.000) A(0.999) A(0.999) A(0.997) A(0.997) A(1.000) A(1.000) A(0.999) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(0.999) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) 
+  19      1   TTTTTTTTTTTTTTTTCTTTTTCTTTTTCCCCTCTGT: T(0.998) T(0.999) T(0.998) T(0.999) T(0.999) T(0.987) T(0.987) T(1.000) T(0.999) T(0.992) T(0.999) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(0.999) T(0.999) T(0.996) T(0.999) C(0.994) C(1.000) T(0.999) T(0.999) T(0.999) 
+  20      3   TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT: T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) 
+  21      1   TTTTTTTTTTTTTTTTTGAGGGGGGGGTGGGGGGCGG: G(1.000) G(1.000) G(1.000) G(1.000) G(1.000) G(1.000) G(1.000) G(1.000) G(0.999) G(0.975) G(0.999) T(0.992) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) G(1.000) G(1.000) G(1.000) G(1.000) G(1.000) G(1.000) G(1.000) G(1.000) G(1.000) 
+  22      1   CCCCCCCCCCCCCCCCCCTTTCCCCCCCCCCCCCCCT: C(0.980) C(1.000) C(0.999) C(1.000) C(1.000) C(0.997) C(0.997) C(1.000) C(0.996) T(0.852) C(0.996) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) 
+  23      1   AAAAAAAAAAAAAAAAAAAAGAAAAATAAAAACAAAA: A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(0.998) A(0.998) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(0.996) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) 
+  24      1   AAAAAAAAAAAAAAGGGGGGAAAAAAGGGGGGAACGG: G(1.000) G(1.000) G(0.977) A(0.996) A(0.997) A(0.999) A(0.999) A(1.000) G(0.999) G(1.000) G(0.999) G(0.989) G(1.000) G(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) G(1.000) G(1.000) G(0.745) G(1.000) G(1.000) G(1.000) G(1.000) G(1.000) G(1.000) 
+  25      1   TTTTTTTTTTTTTTTTTTTCTTGTTTTTTTTTTTTTT: T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(0.999) T(0.999) T(1.000) T(0.999) T(0.923) T(0.999) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) 
+  26      1   CCCCCCCCCCCCCCTTTTTTTTTTTTTTTTTTTTTTT: T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(0.999) T(1.000) T(0.982) T(1.000) T(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) 
+  27      1   CCCCCCCCCCCCCCCCCCTCCCCCCCCTCCCCCCCCC: C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(0.950) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) 
+  28      1   AAAAAAAAAAAAAAAAAAAAAAAAAAAAACCCAAAAA: A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) C(0.999) C(1.000) A(1.000) A(1.000) A(1.000) 
+  29      1   GGGGGGGGGGGTGGGGGAAAAAAAAGAAGAAATAAGA: A(1.000) A(1.000) A(0.998) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(0.980) A(0.996) A(0.980) G(0.990) G(1.000) G(1.000) G(1.000) G(1.000) G(1.000) G(1.000) G(1.000) G(1.000) G(1.000) G(1.000) G(1.000) G(1.000) G(1.000) G(1.000) G(1.000) A(1.000) A(1.000) A(0.994) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) 
+  30      3   TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT: T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) 
+  31      1   TTTTTTTTTTTTTTTAACTTTGTCCTTTTTTTTTTCT: T(0.998) T(1.000) T(0.918) T(0.580) T(0.580) T(0.677) T(0.677) C(1.000) T(0.950) T(0.979) T(0.950) T(0.997) T(1.000) A(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(0.999) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) 
+  32      1   CCCCCCCCCCCCCCCCCCCCTCTTT-TTCTTT-T-TC: T(0.977) T(0.997) T(0.856) T(0.976) T(0.976) T(0.948) T(0.948) T(1.000) C(0.973) C(0.989) C(0.973) C(0.999) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) T(0.997) T(0.997) T(0.993) T(0.997) T(1.000) T(1.000) T(0.997) T(0.997) T(0.997) 
+  33      1   CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC-C-CC: C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) 
+  34      1   TTTTTTTTTTTTAATTTTTTTTTTTTTTCTTTTTTTT: T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(0.999) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) A(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) 
+  35      1   CCCCCCCCCCCCCCCCCCCCCGCCCGCCCCCCCCCCC: C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(0.998) C(0.998) C(1.000) C(1.000) C(0.999) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) 
+  36      1   CCCCCCCCCCCCCCCCCCAATCCCCTTTTCTTTCTCT: T(0.997) T(0.999) C(0.907) C(0.994) C(0.994) C(0.986) C(0.986) C(1.000) C(0.976) A(0.945) C(0.976) C(0.999) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) T(0.999) T(0.999) T(0.995) T(0.999) T(0.681) T(1.000) T(0.999) T(0.999) T(0.999) 
+  37      1   CCCCCCCCCCCCCCCCCCCCCCCTCCCCCGGGCTCTT: C(0.980) C(1.000) C(0.999) C(1.000) C(1.000) C(0.999) C(0.999) C(1.000) C(1.000) C(0.995) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(0.997) C(1.000) G(1.000) G(1.000) C(1.000) C(1.000) C(1.000) 
+  38      1   TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTCG: T(0.978) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(0.998) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) 
+  39      1   TTTTTTTTTTTTTTTTTTTTTTTTTTCCCCCCCCCCC: C(1.000) C(1.000) T(0.973) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(0.999) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) 
+  40      1   TTTTTTTTTTTTTTTTTTTATTTTTTTTTTTTTTTTT: T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(0.981) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) 
+  41      1   GGGGGGGGGGGGGGGGAGGGTTCGGAGGGGGGGGGGG: G(1.000) G(1.000) G(1.000) G(0.999) G(0.999) T(0.802) T(0.802) G(1.000) G(1.000) G(1.000) G(1.000) G(1.000) G(1.000) G(1.000) G(1.000) G(1.000) G(1.000) G(1.000) G(1.000) G(1.000) G(1.000) G(1.000) G(1.000) G(1.000) G(1.000) G(1.000) G(1.000) G(1.000) G(1.000) G(1.000) G(1.000) G(1.000) G(1.000) G(1.000) G(1.000) G(1.000) 
+  42      1   CCCCCTTTTTTTTTCCCC--CCTCCTCCCCCCCCTCC: C(0.999) C(1.000) C(0.999) C(0.999) C(0.999) C(0.993) C(0.993) C(1.000) C(0.999) C(0.885) C(0.999) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) 
+  43      1   CCCCCCCCCCCCCCCCCCTCCCGCCCCCCCCCCCCCC: C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(0.999) C(0.999) C(1.000) C(1.000) C(0.949) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) 
+  44      1   CCCCCCCCCCCCCCAGGCCCCCCCCCCCCCCCCCCCC: C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(0.999) C(1.000) C(0.983) A(1.000) G(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) 
+  45      1   AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA: A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) 
+  46      1   AAAAAAAAAAAAAAAAAAAATGAAAAAAAAAAAAAGA: A(1.000) A(1.000) A(1.000) A(0.999) A(0.999) A(0.958) A(0.958) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) 
+  47      3   TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT: T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) 
+  48      1   TTTTTTTTTTTTTTTTTTATTTTTTCCCCCCCCTCCC: C(0.999) C(1.000) T(0.942) T(0.998) T(0.998) T(0.999) T(0.999) T(1.000) T(0.995) T(0.959) T(0.995) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) C(1.000) C(1.000) C(0.998) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) 
+  49      1   CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC: C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) C(1.000) 
+  50      1   TTTTTTTTTTTTTTTTTTTCAAATAATTTTTTTTTTT: T(0.999) T(1.000) T(0.977) A(1.000) A(1.000) A(1.000) A(1.000) A(1.000) T(0.997) T(0.897) T(0.997) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) T(1.000) 
+
+Summary of changes along branches.
+Check root of tree for directions of change.
+
+Branch 1:   38..37 (loxodonta_africana) 
+
+	   1 G 0.995 -> -
+	   2 C 0.937 -> -
+	   3 C 0.996 -> -
+	   4 T 0.996 -> -
+	   5 C 0.996 -> -
+	   6 T 0.996 -> -
+	   7 G 0.997 -> -
+	   8 T 0.953 -> -
+	   9 T 0.995 -> -
+	  10 G 0.979 -> A
+	  12 A 0.981 -> G
+	  22 C 0.980 -> T
+	  32 T 0.977 -> C
+	  37 C 0.980 -> T
+	  38 T 0.978 -> G
+
+
+Branch 2:   38..39
+
+
+
+Branch 3:   39..40
+
+	  36 T 0.999 -> C 0.907
+	  39 C 1.000 -> T 0.973
+	  48 C 1.000 -> T 0.942
+
+
+Branch 4:   40..41
+
+	  24 G 0.977 -> A 0.996
+	  50 T 0.977 -> A 1.000
+
+
+Branch 5:   41..42
+
+
+
+Branch 6:   42..43
+
+	  41 G 0.999 -> T 0.802
+
+
+Branch 7:   43..44
+
+
+
+Branch 8:   44..21 (cavia_porcellus) 
+
+	   1 G 0.812 -> -
+	   2 C 0.764 -> -
+	   3 C 0.852 -> -
+	   4 T 0.866 -> -
+	   5 C 0.852 -> -
+	   6 T 0.866 -> -
+	   7 G 0.865 -> -
+	   8 T 0.768 -> -
+	   9 T 0.821 -> -
+	  14 C 0.998 -> G
+	  15 T 0.994 -> C
+	  17 C 0.994 -> T
+	  18 A 0.997 -> G
+	  22 C 0.997 -> T
+	  23 A 0.998 -> G
+	  36 C 0.986 -> T
+	  46 A 0.958 -> T
+
+
+Branch 9:   44..22 (chinchilla_lanigera) 
+
+	   1 G 0.812 -> -
+	   2 C 0.764 -> -
+	   3 C 0.852 -> -
+	   4 T 0.866 -> -
+	   5 C 0.852 -> -
+	   6 T 0.866 -> -
+	   7 G 0.865 -> -
+	   8 T 0.768 -> -
+	   9 T 0.821 -> -
+	  31 T 0.677 -> G
+	  32 T 0.948 -> C
+	  35 C 0.998 -> G
+	  46 A 0.958 -> G
+
+
+Branch 10:   43..23 (octodon_degus) 
+
+	   1 G 0.812 -> -
+	   2 C 0.764 -> -
+	   3 C 0.852 -> -
+	   4 T 0.866 -> -
+	   5 C 0.852 -> -
+	   6 T 0.866 -> -
+	   7 G 0.865 -> -
+	   8 T 0.768 -> -
+	   9 T 0.821 -> -
+	  11 T 0.998 -> C
+	  16 A 0.996 -> G
+	  19 T 0.987 -> C
+	  25 T 0.999 -> G
+	  41 T 0.802 -> C
+	  42 C 0.993 -> T
+	  43 C 0.999 -> G
+
+
+Branch 11:   42..45
+
+	  31 T 0.580 -> C 1.000
+
+
+Branch 12:   45..25 (heterocephalus_glaber_male) 
+
+	   1 G 0.826 -> -
+	   2 C 0.776 -> -
+	   3 C 0.862 -> -
+	   4 T 0.876 -> -
+	   5 C 0.862 -> -
+	   6 T 0.876 -> -
+	   7 G 0.875 -> -
+	   8 T 0.780 -> -
+	   9 T 0.832 -> -
+
+
+Branch 13:   45..24 (fukomys_damarensis) 
+
+	   1 G 0.826 -> -
+	   2 C 0.776 -> -
+	   3 C 0.862 -> -
+	   4 T 0.876 -> -
+	   5 C 0.862 -> -
+	   6 T 0.876 -> -
+	   7 G 0.875 -> -
+	   8 T 0.780 -> -
+	   9 T 0.832 -> -
+	  18 A 1.000 -> C
+	  37 C 1.000 -> T
+	  50 A 1.000 -> T
+
+
+Branch 14:   41..26 (jaculus_jaculus) 
+
+	   1 G 0.840 -> -
+	   2 C 0.788 -> -
+	   3 C 0.873 -> -
+	   4 T 0.885 -> -
+	   5 C 0.873 -> -
+	   6 T 0.885 -> -
+	   7 G 0.886 -> -
+	   8 T 0.793 -> -
+	   9 T 0.845 -> -
+	  10 G 1.000 -> A
+	  12 A 1.000 -> G
+	  13 A 1.000 -> C
+	  14 C 1.000 -> T
+	  16 A 1.000 -> C
+	  17 C 0.999 -> T
+	  18 A 0.999 -> G
+	  29 A 1.000 -> G
+	  32 T 0.976 -> -
+	  35 C 1.000 -> G
+	  36 C 0.994 -> T
+	  41 G 0.999 -> A
+	  42 C 0.999 -> T
+	  48 T 0.998 -> C
+
+
+Branch 15:   40..46
+
+	  10 G 0.958 -> A 0.982
+	  32 T 0.856 -> C 0.973
+
+
+Branch 16:   46..47
+
+	  15 T 0.958 -> C 0.829
+	  22 C 0.996 -> T 0.852
+	  36 C 0.976 -> A 0.945
+
+
+Branch 17:   47..20 (propithecus_coquereli) 
+
+	   1 G 0.775 -> -
+	   2 C 0.733 -> -
+	   3 C 0.825 -> -
+	   4 T 0.841 -> -
+	   5 C 0.825 -> -
+	   6 T 0.841 -> -
+	   7 G 0.838 -> -
+	   8 T 0.736 -> -
+	   9 T 0.789 -> -
+	  17 C 0.868 -> T
+	  25 T 0.923 -> C
+	  40 T 0.981 -> A
+	  42 C 0.885 -> -
+	  50 T 0.897 -> C
+
+
+Branch 18:   47..19 (otolemur_garnettii) 
+
+	   1 G 0.775 -> -
+	   2 C 0.733 -> -
+	   3 C 0.825 -> -
+	   4 T 0.841 -> -
+	   5 C 0.825 -> -
+	   6 T 0.841 -> -
+	   7 G 0.838 -> -
+	   8 T 0.736 -> -
+	   9 T 0.789 -> -
+	  21 G 0.975 -> A
+	  27 C 0.950 -> T
+	  42 C 0.885 -> -
+	  43 C 0.949 -> T
+	  48 T 0.959 -> A
+
+
+Branch 19:   46..48
+
+
+
+Branch 20:   48..18 (carlito_syrichta) 
+
+	   1 G 0.855 -> -
+	   2 C 0.802 -> -
+	   3 C 0.885 -> -
+	   4 T 0.896 -> -
+	   5 C 0.885 -> -
+	   6 T 0.896 -> -
+	   7 G 0.897 -> -
+	   8 T 0.807 -> -
+	   9 T 0.858 -> -
+	  12 A 1.000 -> C
+	  14 C 0.996 -> T
+	  15 T 0.958 -> A
+	  17 C 0.970 -> T
+	  31 T 0.950 -> C
+
+
+Branch 21:   48..49
+
+	  21 G 0.999 -> T 0.992
+	  29 A 0.980 -> G 0.990
+
+
+Branch 22:   49..50
+
+	  44 C 0.983 -> A 1.000
+
+
+Branch 23:   50..51
+
+	  31 T 1.000 -> A 1.000
+	  44 A 1.000 -> G 1.000
+
+
+Branch 24:   51..17 (saimiri_boliviensis_boliviensis) 
+
+	   1 G 0.740 -> -
+	   2 C 0.705 -> -
+	   3 C 0.798 -> -
+	   4 T 0.818 -> -
+	   5 C 0.798 -> -
+	   6 T 0.818 -> -
+	   7 G 0.811 -> -
+	   8 T 0.707 -> -
+	   9 T 0.761 -> -
+	  19 T 1.000 -> C
+	  41 G 1.000 -> A
+
+
+Branch 25:   51..16 (cebus_capucinus) 
+
+	   1 G 0.740 -> -
+	   2 C 0.705 -> -
+	   3 C 0.798 -> -
+	   4 T 0.818 -> -
+	   5 C 0.798 -> -
+	   6 T 0.818 -> -
+	   7 G 0.811 -> -
+	   8 T 0.707 -> -
+	   9 T 0.761 -> -
+
+
+Branch 26:   50..15 (aotus_nancymaae) 
+
+	   1 G 0.781 -> -
+	   2 C 0.738 -> -
+	   3 C 0.829 -> -
+	   4 T 0.845 -> -
+	   5 C 0.829 -> -
+	   6 T 0.845 -> -
+	   7 G 0.842 -> -
+	   8 T 0.741 -> -
+	   9 T 0.794 -> -
+
+
+Branch 27:   49..52
+
+	  24 G 0.989 -> A 1.000
+	  26 T 0.982 -> C 1.000
+
+
+Branch 28:   52..53
+
+
+
+Branch 29:   53..54
+
+
+
+Branch 30:   54..55
+
+
+
+Branch 31:   55..56
+
+
+
+Branch 32:   56..2  (pan_paniscus) 
+
+	   1 G 0.761 -> -
+	   2 C 0.721 -> -
+	   3 C 0.814 -> -
+	   4 T 0.832 -> -
+	   5 C 0.814 -> -
+	   6 T 0.832 -> -
+	   7 G 0.827 -> -
+	   8 T 0.724 -> -
+	   9 T 0.778 -> -
+
+
+Branch 33:   56..3  (pan_troglodytes) 
+
+	   1 G 0.761 -> -
+	   2 C 0.721 -> -
+	   3 C 0.814 -> -
+	   4 T 0.832 -> -
+	   5 C 0.814 -> -
+	   6 T 0.832 -> -
+	   7 G 0.827 -> -
+	   8 T 0.724 -> -
+	   9 T 0.778 -> -
+
+
+Branch 34:   55..1  (homo_sapiens) 
+
+	   1 G 0.761 -> -
+	   2 C 0.721 -> -
+	   3 C 0.814 -> -
+	   4 T 0.832 -> -
+	   5 C 0.814 -> -
+	   6 T 0.832 -> -
+	   7 G 0.827 -> -
+	   8 T 0.724 -> -
+	   9 T 0.778 -> -
+
+
+Branch 35:   54..4  (gorilla_gorilla) 
+
+	   1 G 0.761 -> -
+	   2 C 0.721 -> -
+	   3 C 0.814 -> -
+	   4 T 0.832 -> -
+	   5 C 0.814 -> -
+	   6 T 0.832 -> -
+	   7 G 0.827 -> -
+	   8 T 0.724 -> -
+	   9 T 0.778 -> -
+
+
+Branch 36:   53..5  (nomascus_leucogenys) 
+
+	   1 G 0.761 -> -
+	   2 C 0.721 -> -
+	   3 C 0.814 -> -
+	   4 T 0.832 -> -
+	   5 C 0.814 -> -
+	   6 T 0.832 -> -
+	   7 G 0.827 -> -
+	   8 T 0.724 -> -
+	   9 T 0.778 -> -
+
+
+Branch 37:   52..57
+
+	  42 C 1.000 -> T 1.000
+
+
+Branch 38:   57..58
+
+
+
+Branch 39:   58..59
+
+	  34 T 1.000 -> A 1.000
+
+
+Branch 40:   59..14 (rhinopithecus_roxellana) 
+
+	   1 G 0.722 -> -
+	   2 C 0.691 -> -
+	   3 C 0.786 -> -
+	   4 T 0.807 -> -
+	   5 C 0.786 -> -
+	   6 T 0.807 -> -
+	   7 G 0.797 -> -
+	   8 T 0.693 -> -
+	   9 T 0.747 -> -
+
+
+Branch 41:   59..13 (rhinopithecus_bieti) 
+
+	   1 G 0.722 -> -
+	   2 C 0.691 -> -
+	   3 C 0.786 -> -
+	   4 T 0.807 -> -
+	   5 C 0.786 -> -
+	   6 T 0.807 -> -
+	   7 G 0.797 -> -
+	   8 T 0.693 -> -
+	   9 T 0.747 -> -
+
+
+Branch 42:   58..12 (colobus_angolensis_palliatus) 
+
+	   1 G 0.741 -> -
+	   2 C 0.706 -> -
+	   3 C 0.800 -> -
+	   4 T 0.819 -> -
+	   5 C 0.800 -> -
+	   6 T 0.819 -> -
+	   7 G 0.812 -> -
+	   8 T 0.708 -> -
+	   9 T 0.762 -> -
+	  16 A 1.000 -> G
+	  29 G 1.000 -> T
+
+
+Branch 43:   57..60
+
+
+
+Branch 44:   60..11 (chlorocebus_sabaeus) 
+
+	   1 G 0.741 -> -
+	   2 C 0.706 -> -
+	   3 C 0.800 -> -
+	   4 T 0.819 -> -
+	   5 C 0.800 -> -
+	   6 T 0.819 -> -
+	   7 G 0.812 -> -
+	   8 T 0.708 -> -
+	   9 T 0.762 -> -
+
+
+Branch 45:   60..61
+
+
+
+Branch 46:   61..62
+
+
+
+Branch 47:   62..7  (mandrillus_leucophaeus) 
+
+	   1 G 0.741 -> -
+	   2 C 0.706 -> -
+	   3 C 0.800 -> -
+	   4 T 0.819 -> -
+	   5 C 0.800 -> -
+	   6 T 0.819 -> -
+	   7 G 0.812 -> -
+	   8 T 0.708 -> -
+	   9 T 0.762 -> -
+
+
+Branch 48:   62..6  (cercocebus_atys) 
+
+	   1 G 0.741 -> -
+	   2 C 0.706 -> -
+	   3 C 0.800 -> -
+	   4 T 0.819 -> -
+	   5 C 0.800 -> -
+	   6 T 0.819 -> -
+	   7 G 0.812 -> -
+	   8 T 0.708 -> -
+	   9 T 0.762 -> -
+
+
+Branch 49:   61..63
+
+
+
+Branch 50:   63..64
+
+
+
+Branch 51:   64..9  (macaca_mulatta) 
+
+	   1 G 0.741 -> -
+	   2 C 0.706 -> -
+	   3 C 0.800 -> -
+	   4 T 0.819 -> -
+	   5 C 0.800 -> -
+	   6 T 0.819 -> -
+	   7 G 0.812 -> -
+	   8 T 0.708 -> -
+	   9 T 0.762 -> -
+
+
+Branch 52:   64..8  (macaca_fascicularis) 
+
+	   1 G 0.741 -> -
+	   2 C 0.706 -> -
+	   3 C 0.800 -> -
+	   4 T 0.819 -> -
+	   5 C 0.800 -> -
+	   6 T 0.819 -> -
+	   7 G 0.812 -> -
+	   8 T 0.708 -> -
+	   9 T 0.762 -> -
+
+
+Branch 53:   63..10 (macaca_nemestrina) 
+
+	   1 G 0.741 -> -
+	   2 C 0.706 -> -
+	   3 C 0.800 -> -
+	   4 T 0.819 -> -
+	   5 C 0.800 -> -
+	   6 T 0.819 -> -
+	   7 G 0.812 -> -
+	   8 T 0.708 -> -
+	   9 T 0.762 -> -
+
+
+Branch 54:   39..65
+
+
+
+Branch 55:   65..66
+
+
+
+Branch 56:   66..67
+
+
+
+Branch 57:   67..34 (sus_scrofa) 
+
+	   1 G 0.999 -> A
+	   8 T 0.957 -> C
+	   9 T 0.998 -> G
+	  14 C 0.998 -> T
+	  16 A 0.999 -> T
+	  18 A 0.999 -> C
+	  19 T 0.996 -> C
+	  24 G 0.745 -> A
+	  36 T 0.995 -> C
+	  37 C 0.997 -> T
+	  48 C 0.998 -> T
+
+
+Branch 58:   67..33 (equus_caballus) 
+
+	   2 C 0.922 -> T
+	  23 A 0.996 -> C
+	  24 G 0.745 -> A
+	  29 A 0.994 -> T
+	  32 T 0.993 -> -
+	  33 C 1.000 -> -
+
+
+Branch 59:   66..68
+
+
+
+Branch 60:   68..69
+
+	  12 A 1.000 -> G 0.999
+	  15 T 1.000 -> C 0.996
+	  19 T 0.999 -> C 0.994
+	  28 A 1.000 -> C 0.999
+	  37 C 1.000 -> G 1.000
+
+
+Branch 61:   69..70
+
+	  10 G 0.978 -> A 1.000
+
+
+Branch 62:   70..31 (panthera_pardus) 
+
+	   1 G 0.962 -> -
+	   2 C 0.948 -> -
+	   3 C 0.968 -> -
+	   4 T 0.971 -> -
+	   5 C 0.968 -> -
+	   6 T 0.971 -> -
+	   7 G 0.974 -> -
+	   8 T 0.947 -> -
+	   9 T 0.959 -> -
+
+
+Branch 63:   70..32 (panthera_tigris_altaica) 
+
+	   1 G 0.962 -> -
+	   2 C 0.948 -> -
+	   3 C 0.968 -> -
+	   4 T 0.971 -> -
+	   5 C 0.968 -> -
+	   6 T 0.971 -> -
+	   7 G 0.974 -> -
+	   8 T 0.947 -> -
+	   9 T 0.959 -> -
+
+
+Branch 64:   69..30 (felis_catus) 
+
+	  36 T 0.681 -> C
+
+
+Branch 65:   68..71
+
+
+
+Branch 66:   71..29 (canis_familiaris) 
+
+	  10 G 1.000 -> A
+	  19 T 0.999 -> C
+	  29 A 1.000 -> G
+	  32 T 0.997 -> C
+	  34 T 1.000 -> C
+
+
+Branch 67:   71..72
+
+
+
+Branch 68:   72..28 (mustela_putorius_furo) 
+
+	   1 G 0.999 -> -
+	   2 C 0.941 -> -
+	   3 C 0.999 -> -
+	   4 T 0.999 -> -
+	   5 C 0.999 -> -
+	   6 T 0.999 -> -
+	   7 G 1.000 -> -
+	   8 T 0.958 -> -
+	   9 T 0.999 -> -
+	  21 G 1.000 -> T
+	  27 C 1.000 -> T
+
+
+Branch 69:   72..27 (ailuropoda_melanoleuca) 
+
+	   1 G 0.999 -> -
+	   2 C 0.941 -> -
+	   3 C 0.999 -> -
+	   4 T 0.999 -> -
+	   5 C 0.999 -> -
+	   6 T 0.999 -> -
+	   7 G 1.000 -> -
+	   8 T 0.958 -> -
+	   9 T 0.999 -> -
+	  23 A 1.000 -> T
+
+
+Branch 70:   65..73
+
+
+
+Branch 71:   73..36 (pteropus_vampyrus) 
+
+	   1 G 0.999 -> -
+	   2 C 0.941 -> -
+	   3 C 0.999 -> -
+	   4 T 0.999 -> -
+	   5 C 0.999 -> -
+	   6 T 0.999 -> -
+	   7 G 1.000 -> -
+	   8 T 0.958 -> -
+	   9 T 0.999 -> -
+	  10 G 1.000 -> A
+	  19 T 0.999 -> G
+	  29 A 1.000 -> G
+	  31 T 1.000 -> C
+	  36 T 0.999 -> C
+	  37 C 1.000 -> T
+	  38 T 1.000 -> C
+	  46 A 1.000 -> G
+
+
+Branch 72:   73..35 (myotis_lucifugus) 
+
+	   1 G 0.999 -> -
+	   2 C 0.941 -> -
+	   3 C 0.999 -> -
+	   4 T 0.999 -> -
+	   5 C 0.999 -> -
+	   6 T 0.999 -> -
+	   7 G 1.000 -> -
+	   8 T 0.958 -> C
+	  17 C 1.000 -> T
+	  18 A 1.000 -> G
+	  21 G 1.000 -> C
+	  24 G 1.000 -> C
+	  32 T 0.997 -> -
+	  33 C 1.000 -> -
+	  42 C 1.000 -> T
+
+
+
+
+List of extant and reconstructed sequences
+
+    73     50
+
+homo_sapiens      ---------A TAACTACATT TCAATCCAGT TCCTCCCTTT GCCCAATTCT 
+pan_paniscus      ---------A TAACTACATT TCAATCCAGT TCCTCCCTTT GCCCAATTCT 
+pan_troglodytes   ---------A TAACTACATT TCAATCCAGT TCCTCCCTTT GCCCAATTCT 
+gorilla_gorilla   ---------A TAACTACATT TCAATCCAGT TCCTCCCTTT GCCCAATTCT 
+nomascus_leucogenys   ---------A TAACTACATT TCAATCCAGT TCCTCCCTTT GCCCAATTCT 
+cercocebus_atys   ---------A TAACTACATT TCAATCCAGT TCCTCCCTTT GTCCAATTCT 
+mandrillus_leucophaeus   ---------A TAACTACATT TCAATCCAGT TCCTCCCTTT GTCCAATTCT 
+macaca_fascicularis   ---------A TAACTACATT TCAATCCAGT TCCTCCCTTT GTCCAATTCT 
+macaca_mulatta    ---------A TAACTACATT TCAATCCAGT TCCTCCCTTT GTCCAATTCT 
+macaca_nemestrina   ---------A TAACTACATT TCAATCCAGT TCCTCCCTTT GTCCAATTCT 
+chlorocebus_sabaeus   ---------A TAACTACATT TCAATCCAGT TCCTCCCTTT GTCCAATTCT 
+colobus_angolensis_palliatus   ---------A TAACTGCATT TCAATCCATT TCCTCCCTTT GTCCAATTCT 
+rhinopithecus_bieti   ---------A TAACTACATT TCAATCCAGT TCCACCCTTT GTCCAATTCT 
+rhinopithecus_roxellana   ---------A TAACTACATT TCAATCCAGT TCCACCCTTT GTCCAATTCT 
+aotus_nancymaae   ---------A TAACTACATT TCAGTTCAGT TCCTCCCTTT GCCAAATTCT 
+cebus_capucinus   ---------A TAACTACATT TCAGTTCAGT ACCTCCCTTT GCCGAATTCT 
+saimiri_boliviensis_boliviensis   ---------A TAACTACACT TCAGTTCAGT ACCTCCCTTT ACCGAATTCT 
+carlito_syrichta   ---------A TCATAATATT GCAGTTCAAT CCCTCCCTTT GCCCAATTCT 
+otolemur_garnettii   ---------A TAACCACATT ATAGTTTAAT TCCTCACTTT G-TCAATACT 
+propithecus_coquereli   ---------A TAACCATATT GTAGCTCAAT TCCTCACTTA G-CCAATTCC 
+cavia_porcellus   ---------G TAAGCATGTT GTGATTCAAT TTCTCTCTTT TCCCATTTCA 
+chinchilla_lanigera   ---------G TAACTACATT GCAATTCAAT GCCTGCCTTT TCCCAGTTCA 
+octodon_degus     ---------G CAACTGCACT GCAAGTCAAT TTCTCCCTTT CTGCAATTCA 
+fukomys_damarensis   ---------G TAACTACCTT GCAATTCAAT CTCTCCTTTT GCCCAATTCT 
+heterocephalus_glaber_male   ---------G TAACTACATT GCAATTCAAT CTCTCCCTTT GCCCAATTCA 
+jaculus_jaculus   ---------A TGCTTCTGTT GCAATTCAGT T-CTGTCTTT ATCCAATCCA 
+ailuropoda_melanoleuca   ---------G TAACTACATT GCTGTTCAAT TTCTCTCTCT GCCCAATCCT 
+mustela_putorius_furo   ---------G TAACTACATT TCAGTTTAAT TTCTCTCTCT GCCCAATCCT 
+canis_familiaris   GCCTCTGTTA TAACTACACT GCAGTTCAGT TCCCCTCTCT GCCCAATCCT 
+felis_catus       GCCTCTGTTG TGACCACACT GCAGTTCCAT TTCTCCGTCT GCCCAATCCT 
+panthera_pardus   ---------A TGACCACACT GCAGTTCCAT TTCTCTGTCT GCCCAATCCT 
+panthera_tigris_altaica   ---------A TGACCACACT GCAGTTCCAT TTCTCTGTCT GCCCAATCCT 
+equus_caballus    GTCTCTGTTG TAACTACATT GCCATTCATT T--TCTCTCT GCCCAATCCT 
+sus_scrofa        ACCTCTGCGG TAATTTCCCT GCAATTCAAT TTCTCCTTCT GCCCAATTCT 
+myotis_lucifugus   -------CTG TAACTATGTT CCACTTCAAT T--TCTCTCT GTCCAATCCT 
+pteropus_vampyrus   ---------A TAACTACAGT GCAGTTCAGT CTCTCCTCCT GCCCAGTCCT 
+loxodonta_africana   ---------A TGACTACATT GTAGTTCAAT TCCTCTTGCT GCCCAATCCT 
+node #38          GCCTCTGTTG TAACTACATT GCAGTTCAAT TTCTCTCTCT GCCCAATCCT 
+node #39          GCCTCTGTTG TAACTACATT GCAGTTCAAT TTCTCTCTCT GCCCAATCCT 
+node #40          GCCTCTGTTG TAACTACATT GCAGTTCAAT TTCTCCCTTT GCCCAATTCT 
+node #41          GCCTCTGTTG TAACTACATT GCAATTCAAT TTCTCCCTTT GCCCAATTCA 
+node #42          GCCTCTGTTG TAACTACATT GCAATTCAAT TTCTCCCTTT GCCCAATTCA 
+node #43          GCCTCTGTTG TAACTACATT GCAATTCAAT TTCTCCCTTT TCCCAATTCA 
+node #44          GCCTCTGTTG TAACTACATT GCAATTCAAT TTCTCCCTTT TCCCAATTCA 
+node #45          GCCTCTGTTG TAACTACATT GCAATTCAAT CTCTCCCTTT GCCCAATTCA 
+node #46          GCCTCTGTTA TAACTACATT GCAGTTCAAT TCCTCCCTTT GCCCAATTCT 
+node #47          GCCTCTGTTA TAACCACATT GTAGTTCAAT TCCTCACTTT GCCCAATTCT 
+node #48          GCCTCTGTTA TAACTACATT GCAGTTCAAT TCCTCCCTTT GCCCAATTCT 
+node #49          GCCTCTGTTA TAACTACATT TCAGTTCAGT TCCTCCCTTT GCCCAATTCT 
+node #50          GCCTCTGTTA TAACTACATT TCAGTTCAGT TCCTCCCTTT GCCAAATTCT 
+node #51          GCCTCTGTTA TAACTACATT TCAGTTCAGT ACCTCCCTTT GCCGAATTCT 
+node #52          GCCTCTGTTA TAACTACATT TCAATCCAGT TCCTCCCTTT GCCCAATTCT 
+node #53          GCCTCTGTTA TAACTACATT TCAATCCAGT TCCTCCCTTT GCCCAATTCT 
+node #54          GCCTCTGTTA TAACTACATT TCAATCCAGT TCCTCCCTTT GCCCAATTCT 
+node #55          GCCTCTGTTA TAACTACATT TCAATCCAGT TCCTCCCTTT GCCCAATTCT 
+node #56          GCCTCTGTTA TAACTACATT TCAATCCAGT TCCTCCCTTT GCCCAATTCT 
+node #57          GCCTCTGTTA TAACTACATT TCAATCCAGT TCCTCCCTTT GTCCAATTCT 
+node #58          GCCTCTGTTA TAACTACATT TCAATCCAGT TCCTCCCTTT GTCCAATTCT 
+node #59          GCCTCTGTTA TAACTACATT TCAATCCAGT TCCACCCTTT GTCCAATTCT 
+node #60          GCCTCTGTTA TAACTACATT TCAATCCAGT TCCTCCCTTT GTCCAATTCT 
+node #61          GCCTCTGTTA TAACTACATT TCAATCCAGT TCCTCCCTTT GTCCAATTCT 
+node #62          GCCTCTGTTA TAACTACATT TCAATCCAGT TCCTCCCTTT GTCCAATTCT 
+node #63          GCCTCTGTTA TAACTACATT TCAATCCAGT TCCTCCCTTT GTCCAATTCT 
+node #64          GCCTCTGTTA TAACTACATT TCAATCCAGT TCCTCCCTTT GTCCAATTCT 
+node #65          GCCTCTGTTG TAACTACATT GCAGTTCAAT TTCTCTCTCT GCCCAATCCT 
+node #66          GCCTCTGTTG TAACTACATT GCAGTTCAAT TTCTCTCTCT GCCCAATCCT 
+node #67          GCCTCTGTTG TAACTACATT GCAGTTCAAT TTCTCTCTCT GCCCAATCCT 
+node #68          GCCTCTGTTG TAACTACATT GCAGTTCAAT TTCTCTCTCT GCCCAATCCT 
+node #69          GCCTCTGTTG TGACCACACT GCAGTTCCAT TTCTCTGTCT GCCCAATCCT 
+node #70          GCCTCTGTTA TGACCACACT GCAGTTCCAT TTCTCTGTCT GCCCAATCCT 
+node #71          GCCTCTGTTG TAACTACATT GCAGTTCAAT TTCTCTCTCT GCCCAATCCT 
+node #72          GCCTCTGTTG TAACTACATT GCAGTTCAAT TTCTCTCTCT GCCCAATCCT 
+node #73          GCCTCTGTTG TAACTACATT GCAGTTCAAT TTCTCTCTCT GCCCAATCCT 
+
+
+Overall accuracy of the 36 ancestral sequences:
+  0.99437  0.99778  0.97332  0.96413  0.96413  0.95562  0.95562  0.97130  0.97095  0.94293  0.97095  0.96652  0.96488  0.95910  0.96203  0.96202  0.96202  0.96202  0.96202  0.95933  0.95933  0.95672  0.95933  0.95933  0.95933  0.95933  0.95933  0.99778  0.99778  0.99159  0.99778  0.99234  0.99340  0.99778  0.99778  0.99778
+for a site.
+
+  0.75103  0.89237  0.24614  0.13057  0.13056  0.08467  0.08467  0.20759  0.21125  0.04357  0.21125  0.15779  0.14013  0.09684  0.11698  0.11698  0.11697  0.11697  0.11697  0.09833  0.09833  0.08283  0.09833  0.09832  0.09832  0.09832  0.09832  0.89248  0.89256  0.62867  0.89259  0.63830  0.71426  0.89260  0.89257  0.89239
+for the sequence.
+
+
+Counts of changes at sites
+
+   1  G- G- G- G- G- G- G- G- G- G- G- G- G- G- G- G- G- G- G- G- G- G- G- G- G- G- G- G- G- G- GA G- G- G- (34)
+   2  C- C- C- C- C- C- C- C- C- C- C- C- C- C- C- C- C- C- C- C- C- C- C- C- C- C- C- C- C- C- CT C- C- C- (34)
+   3  C- C- C- C- C- C- C- C- C- C- C- C- C- C- C- C- C- C- C- C- C- C- C- C- C- C- C- C- C- C- C- C- C- (33)
+   4  T- T- T- T- T- T- T- T- T- T- T- T- T- T- T- T- T- T- T- T- T- T- T- T- T- T- T- T- T- T- T- T- T- (33)
+   5  C- C- C- C- C- C- C- C- C- C- C- C- C- C- C- C- C- C- C- C- C- C- C- C- C- C- C- C- C- C- C- C- C- (33)
+   6  T- T- T- T- T- T- T- T- T- T- T- T- T- T- T- T- T- T- T- T- T- T- T- T- T- T- T- T- T- T- T- T- T- (33)
+   7  G- G- G- G- G- G- G- G- G- G- G- G- G- G- G- G- G- G- G- G- G- G- G- G- G- G- G- G- G- G- G- G- G- (33)
+   8  T- T- T- T- T- T- T- T- T- T- T- T- T- T- T- T- T- T- T- T- T- T- T- T- T- T- T- T- T- T- TC TC T- T- (34)
+   9  T- T- T- T- T- T- T- T- T- T- T- T- T- T- T- T- T- T- T- T- T- T- T- T- T- T- T- T- T- T- TG T- T- (33)
+  10  GA GA GA GA GA GA (6)
+  11  TC (1)
+  12  AC AG AG AG (4)
+  13  AC (1)
+  14  CT CG CT CT (4)
+  15  TA TC TC TC (4)
+  16  AG AG AC AT (4)
+  17  CT CT CT CT CT (5)
+  18  AG AC AG AC AG (5)
+  19  TC TC TC TC TG TC (6)
+  20  (0)
+  21  GA GT GC GT (4)
+  22  CT CT CT (3)
+  23  AG AT AC (3)
+  24  GA GA GC GA GA (5)
+  25  TC TG (2)
+  26  TC (1)
+  27  CT CT (2)
+  28  AC (1)
+  29  GT AG AG AT AG AG (6)
+  30  (0)
+  31  TC TG TC TC TA (5)
+  32  TC T- TC T- T- TC TC (7)
+  33  C- C- (2)
+  34  TC TA (2)
+  35  CG CG (2)
+  36  CT CT TC TC TC TC CA (7)
+  37  CT CT CT CT CG (5)
+  38  TC TG (2)
+  39  CT (1)
+  40  TA (1)
+  41  GA TC GA GT (4)
+  42  C- C- CT CT CT CT (6)
+  43  CT CG (2)
+  44  CA AG (2)
+  45  (0)
+  46  AT AG AG (3)
+  47  (0)
+  48  TA TC CT CT (4)
+  49  (0)
+  50  TC AT TA (3)
+
+
